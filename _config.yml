@@ -6,7 +6,7 @@ permalink:        /posts/:title
 
 # Setup
 title:            Chris Beams
-tagline:          None
+tagline:          
 url:              http://chris.beams.io
 paginate:         1
 baseurl:          /
