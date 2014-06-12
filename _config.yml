@@ -1,10 +1,21 @@
-# Site settings
-title: Chris Beams
-email: chris@beams.io
-description: "Chris Beams"
-baseurl: ""
-url: "http://chris.beams.io"
+# Dependencies
+markdown:         redcarpet
 
-# Build settings
-markdown: redcarpet
-permalink: /posts/:title
+# Permalinks
+permalink:        /posts/:title
+
+# Setup
+title:            Chris Beams
+tagline:          None
+url:              http://chris.beams.io
+paginate:         1
+baseurl:          /
+author:
+  name:           Chris Beams
+  url:            http://chris.beams.io
+  email:          chris@beams.io
+
+# Custom vars
+version:          1.0.0
+github:
+  repo:           https://github.com/cbeams/cbeams.github.io
