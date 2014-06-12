@@ -1,0 +1,10 @@
+# Site settings
+title: Chris Beams
+email: chris@beams.io
+description: "Chris Beams"
+baseurl: ""
+url: "http://chris.beams.io"
+
+# Build settings
+markdown: redcarpet
+permalink: /posts/:title
