@@ -167,11 +167,11 @@ pre {
   font-size: .8rem;
   line-height: 1.2;
   white-space: pre;
-  white-space: pre-wrap;
   word-break: break-all;
-  word-wrap: break-word;
+  word-wrap: normal;
   background-color: #393939;
   border-radius: 4px;
+  overflow-x: scroll;
 }
 pre code {
   padding: 0;
