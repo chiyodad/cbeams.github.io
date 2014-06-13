@@ -10,14 +10,14 @@ package bit.ledger;
 
 public class Main {
 
-  /**
-   * A main method with documentation.
-   *
-   * @param args the command-line args
-   */
-  public static void main(String... args) {
-      System.out.println("Hello, World!"); // single
-  }
+    /**
+     * A main method with documentation.
+     *
+     * @param args the command-line args
+     */
+    public static void main(String... args) {
+        System.out.println("Hello, World!"); // single
+    }
 }
 ```
 
