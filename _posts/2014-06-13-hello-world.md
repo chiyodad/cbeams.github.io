@@ -6,6 +6,8 @@ title: Hello World! (H1)
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor.
 
 ```java
+package bit.ledger;
+
 public class Main {
 
   /**
@@ -14,7 +16,7 @@ public class Main {
    * @param args the command-line args
    */
   public static void main(String... args) {
-      System.out.println("Hello, World!");
+      System.out.println("Hello, World!"); // single
   }
 }
 ```
