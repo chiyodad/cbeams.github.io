@@ -5,6 +5,20 @@ title: Hello World! (H1)
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor.
 
+```java
+public class Main {
+
+  /**
+   * A main method with documentation.
+   *
+   * @param args the command-line args
+   */
+  public static void main(String... args) {
+      System.out.println("Hello, World!");
+  }
+}
+```
+
 ## Heading 2
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor.
