@@ -8,7 +8,8 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Se
 ```java
 package bit.ledger;
 
-public class Main {
+@SuppressWarnings(value = "all")
+public class Hello {
 
     /**
      * A main method with documentation.
