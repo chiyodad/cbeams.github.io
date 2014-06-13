@@ -171,6 +171,7 @@ pre {
   word-break: break-all;
   word-wrap: break-word;
   background-color: #393939;
+  border-radius: 4px;
 }
 pre code {
   padding: 0;
