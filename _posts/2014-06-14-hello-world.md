@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Hello World! (H1)
+date: 2014-06-14 09:05:00 +0200
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor.

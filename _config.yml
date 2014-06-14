@@ -19,3 +19,5 @@ author:
 version:          1.0.0
 github:
   repo:           https://github.com/cbeams/cbeams.github.io
+
+future: false
