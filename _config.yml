@@ -6,9 +6,8 @@ permalink:        /posts/:title
 
 # Setup
 title:            Chris Beams
-tagline:          
+tagline:
 url:              http://chris.beams.io
-paginate:         1
 baseurl:          /
 author:
   name:           Chris Beams
