@@ -1,13 +1,7 @@
-# Dependencies
 markdown:         redcarpet
-
-# Permalinks
 permalink:        /writing/:title
-
-# Setup
 title:            Chris Beams
 url:              http://chris.beams.io
 author:
   name:           Chris Beams
-  url:            http://chris.beams.io
   email:          chris@beams.io
