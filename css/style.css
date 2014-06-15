@@ -423,3 +423,8 @@ a.pagination-item:hover {
     border-bottom-right-radius: 4px;
   }
 }
+
+/* Footer */
+.footer {
+    margin-bottom: 1.5rem;
+}
