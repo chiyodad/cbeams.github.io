@@ -14,9 +14,4 @@ author:
   url:            http://chris.beams.io
   email:          chris@beams.io
 
-# Custom vars
-version:          1.0.0
-github:
-  repo:           https://github.com/cbeams/cbeams.github.io
-
 future: false
