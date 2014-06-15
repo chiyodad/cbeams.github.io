@@ -6,7 +6,6 @@ permalink:        /writing/:title
 
 # Setup
 title:            Chris Beams
-tagline:
 url:              http://chris.beams.io
 baseurl:          /
 author:
