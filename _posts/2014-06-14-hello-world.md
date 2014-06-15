@@ -1,9 +1,13 @@
 ---
 layout: post
-title: Hello World! (H1)
+title: Hello World!
 date: 2014-06-14 09:05:00 +0200
 tags: essay
 ---
+
+<div class="message">
+This post is just a placeholder. Stay tuned for real content!
+</div>
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor.
 
