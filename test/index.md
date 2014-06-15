@@ -5,7 +5,7 @@ title: Example content
 
 
 <div class="message">
-  Howdy! This is an example blog post that shows several types of HTML content supported in this theme.
+This page demonstrates the various styles that are supported on the site. It's also a good idea to visit this page any time CSS changes have been made, to ensure that nothing has broken. And the callout box you're looking at right now was produced by wrapping text in a <code>&lt;div class="message"&gt;</code> element.
 </div>
 
 Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. *Aenean eu leo quam.* Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.
@@ -21,7 +21,7 @@ HTML defines a long list of available inline tags, a complete list of which can 
 - **To bold text**, use `<strong>`.
 - *To italicize text*, use `<em>`.
 - Abbreviations, like <abbr title="HyperText Markup Langage">HTML</abbr> should use `<abbr>`, with an optional `title` attribute for the full phrase.
-- Citations, like <cite>&mdash; Mark otto</cite>, should use `<cite>`.
+- Citations, like <cite>&mdash; Some Author</cite>, should use `<cite>`.
 - <del>Deleted</del> text should use `<del>` and <ins>inserted</ins> text should use `<ins>`.
 - Superscript <sup>text</sup> uses `<sup>` and subscript <sub>text</sub> uses `<sub>`.
 
@@ -33,9 +33,42 @@ Vivamus sagittis lacus vel augue rutrum faucibus dolor auctor. Duis mollis, est 
 
 ### Code
 
-Cum sociis natoque penatibus et magnis dis `code element` montes, nascetur ridiculus mus.
+Short bits of code can be rendered as fixed-width by wrapping them in backticks or `<code>` elements.
 
-{% highlight js %}
+#### Java
+```java
+package bit.ledger;
+
+@SuppressWarnings(value = "all")
+public class Hello {
+
+    /**
+     * A main method with documentation.
+     *
+     * @param args the command-line args
+     */
+    public static void main(String... args) {
+        System.out.println("Hello, World!"); // single
+    }
+}
+```
+
+#### XML
+```xml
+<foo>
+  <bar key="val"/>
+  <baz>val</baz>
+</foo>
+```
+
+#### Properties
+```properties
+key1=value1
+key2=value2
+```
+
+#### Javascript
+```javascript
 // Example can be run directly in your JavaScript console
 
 // Create a function that takes two arguments and returns the sum of those arguments
@@ -44,7 +77,7 @@ var adder = new Function("a", "b", "return a + b");
 // Call the function
 adder(2, 6);
 // > 8
-{% endhighlight %}
+```
 
 Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.
 
@@ -132,7 +165,3 @@ Aenean lacinia bibendum nulla sed consectetur. Lorem ipsum dolor sit amet, conse
 </table>
 
 Nullam id dolor id nibh ultricies vehicula ut id elit. Sed posuere consectetur est at lobortis. Nullam quis risus eget urna mollis ornare vel eu leo.
-
------
-
-Want to see something else added? <a href="https://github.com/poole/poole/issues/new">Open an issue.</a>
