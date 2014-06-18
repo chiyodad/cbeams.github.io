@@ -7,8 +7,7 @@
 		<outline htmlUrl="https://bitcoin.org/en/events" title="Bitcoin events" xmlUrl="https://bitcoin.org/en/rss/events.rss" type="rss" text="Bitcoin events"/>
 		<outline htmlUrl="https://bitcoinfoundation.org" title="Bitcoin Foundation" xmlUrl="https://bitcoinfoundation.org/feed/" type="rss" text="Bitcoin Foundation"/>
 		<outline htmlUrl="http://bsnyderblog.blogspot.com/" title="BruceBlog" xmlUrl="http://bsnyderblog.blogspot.com/feeds/posts/default" type="rss" text="BruceBlog"/>
-		<outline htmlUrl="http://chris.beams.io" title="Chris Beams" xmlUrl="http://chris.beams.io/atom.xml" type="rss" text="Chris Beams"/>
-		<outline htmlUrl="http://chris.beams.io" title="Chris Beams" xmlUrl="http://feeds.chris.beams.io/cbeams" type="rss" text="Chris Beams"/>
+		<outline htmlUrl="http://chris.beams.io" title="Chris Beams" xmlUrl="http://feed.chris.beams.io/cbeams" type="rss" text="Chris Beams"/>
 		<outline htmlUrl="http://blog.ethereum.org" title="Ethereum Blog" xmlUrl="http://blog.ethereum.org/feed/" type="rss" text="Ethereum Blog"/>
 		<outline htmlUrl="http://blog.feedbin.com" title="Feedbin Blog" xmlUrl="http://blog.feedbin.com/atom.xml" type="rss" text="Feedbin Blog"/>
 		<outline htmlUrl="https://feedpress.it/blog/" title="FeedPress" xmlUrl="http://feedpress.me/feedpress" type="rss" text="FeedPress"/>
