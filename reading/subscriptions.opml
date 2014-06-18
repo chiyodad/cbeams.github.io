@@ -7,13 +7,15 @@
 		<outline htmlUrl="https://bitcoin.org/en/events" title="Bitcoin events" xmlUrl="https://bitcoin.org/en/rss/events.rss" type="rss" text="Bitcoin events"/>
 		<outline htmlUrl="https://bitcoinfoundation.org" title="Bitcoin Foundation" xmlUrl="https://bitcoinfoundation.org/feed/" type="rss" text="Bitcoin Foundation"/>
 		<outline htmlUrl="http://bsnyderblog.blogspot.com/" title="BruceBlog" xmlUrl="http://bsnyderblog.blogspot.com/feeds/posts/default" type="rss" text="BruceBlog"/>
+		<outline htmlUrl="http://chris.beams.io" title="Chris Beams" xmlUrl="http://chris.beams.io/atom.xml" type="rss" text="Chris Beams"/>
+		<outline htmlUrl="http://blog.ethereum.org" title="Ethereum Blog" xmlUrl="http://blog.ethereum.org/feed/" type="rss" text="Ethereum Blog"/>
 		<outline htmlUrl="http://blog.feedbin.com" title="Feedbin Blog" xmlUrl="http://blog.feedbin.com/atom.xml" type="rss" text="Feedbin Blog"/>
 		<outline htmlUrl="https://feedpress.it/blog/" title="FeedPress" xmlUrl="http://feedpress.me/feedpress" type="rss" text="FeedPress"/>
 		<outline htmlUrl="http://get.gaug.es/blog/" title="Gaug.es" xmlUrl="http://get.gaug.es/blog/feed/" type="rss" text="Gaug.es"/>
 		<outline htmlUrl="http://yourdailygerman.wordpress.com" title="German is easy!" xmlUrl="http://yourdailygerman.wordpress.com/feed/" type="rss" text="German is easy!"/>
+		<outline htmlUrl="https://github.com/blog" title="GitHub" xmlUrl="https://github.com/blog/ship.atom" type="rss" text="GitHub"/>
 		<outline htmlUrl="http://blog.jetbrains.com/idea" title="IntelliJ IDEA" xmlUrl="http://blog.jetbrains.com/idea/feed/" type="rss" text="IntelliJ IDEA"/>
 		<outline htmlUrl="http://www.samharris.org/" title="Sam Harris" xmlUrl="http://feeds.feedburner.com/SamHarris" type="rss" text="Sam Harris"/>
-		<outline htmlUrl="https://github.com/blog" title="The GitHub Blog" xmlUrl="https://github.com/blog/ship.atom" type="rss" text="The GitHub Blog"/>
 		<outline htmlUrl="http://zenhabits.net" title="zenhabits" xmlUrl="http://feeds.feedburner.com/zenhabits" type="rss" text="zenhabits"/>
 	</body>
 </opml>
