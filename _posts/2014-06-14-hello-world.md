@@ -9,7 +9,7 @@ tags: essay
 This post is just a placeholder. Stay tuned for real content!
 </div>
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. [Maecenas](http://example.com) congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor.
 
 ```java
 package bit.ledger;
