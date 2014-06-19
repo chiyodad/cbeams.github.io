@@ -17,6 +17,7 @@
 		<outline htmlUrl="http://blog.jetbrains.com/idea" title="IntelliJ IDEA" xmlUrl="http://blog.jetbrains.com/idea/feed/" type="rss" text="IntelliJ IDEA"/>
 		<outline htmlUrl="http://www.paulgraham.com/" title="Paul Graham: Essays" xmlUrl="http://www.aaronsw.com/2002/feeds/pgessays.rss" type="rss" text="Paul Graham: Essays"/>
 		<outline htmlUrl="http://www.samharris.org/" title="Sam Harris" xmlUrl="http://feeds.feedburner.com/SamHarris" type="rss" text="Sam Harris"/>
+		<outline htmlUrl="https://www.subtome.com/" title="SubToMe" xmlUrl="http://docs.subtome.com/feed.xml" type="rss" text="SubToMe"/>
 		<outline htmlUrl="http://blog.vinumeris.com" title="Vinumeris" xmlUrl="http://blog.vinumeris.com/feed/" type="rss" text="Vinumeris"/>
 		<outline htmlUrl="http://xkcd.com/" title="xkcd.com" xmlUrl="http://xkcd.com/atom.xml" type="rss" text="xkcd.com"/>
 		<outline htmlUrl="http://zenhabits.net" title="zenhabits" xmlUrl="http://feeds.feedburner.com/zenhabits" type="rss" text="zenhabits"/>
