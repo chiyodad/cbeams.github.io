@@ -8,7 +8,7 @@ Things I'm up to.
 ## Current
 
  - [Reboot & Research](reboot)
- - [Learn B2-Level German](de-b2)
+ - [Learn Conversational German](de-b2)
 
 ## Past
 
