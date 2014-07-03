@@ -6,7 +6,9 @@
 <div class="masthead">
 </div>
 {{ content }}
+{% if page.path != 'index.md' %}
 {% include footer.html %}
+{% endif %}
 </div>
 {% include gauges.html %}
 </body>

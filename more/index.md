@@ -3,5 +3,5 @@ layout: page
 title: More
 ---
 
- - [Reading](/reading)
- - [Listening](/listening)
+ - [reading](/reading)
+ - [listening](/listening)
