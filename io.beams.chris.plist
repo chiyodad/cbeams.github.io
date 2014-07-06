@@ -12,5 +12,11 @@
 	<true/>
 	<key>RunAtLoad</key>
         <true/>
+        <key>StandardOutPath</key>
+        <string>/var/log/chris.beams.io.log</string>
+        <key>StandardErrorPath</key>
+        <string>/var/log/chris.beams.io.log</string>
+        <key>Debug</key>
+        <true/>
 </dict>
 </plist>
