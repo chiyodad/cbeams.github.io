@@ -1,7 +1,10 @@
 #!/bin/bash
 
 HOOKPORT=12345
-SERVEPORT=80
+SERVEPORT=4000
+
+echo updating git repo...
+git pull
 
 while true; do
     echo starting jekyll on port $SERVEPORT...
@@ -9,7 +12,7 @@ while true; do
     JEKYLLPID=$!
     echo jekyll started with pid $JEKYLLPID.
     echo listening for webhook notifications on port $HOOKPORT.
-    nc -l $HOOKPORT
+    echo -e "HTTP/1.1 202 Accepted\r\nContent-Type: text/html\r\n\r\n" | nc -l $HOOKPORT
     echo got webhook request. updating git repo...
     git pull
     echo git repo updated. killing jekyll.
