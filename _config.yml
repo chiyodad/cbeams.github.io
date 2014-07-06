@@ -5,3 +5,8 @@ url:              http://chris.beams.io
 author:
   name:           Chris Beams
   email:          chris@beams.io
+
+collections:
+  stream:
+    output:       true
+    permalink:    /stream/:path/
