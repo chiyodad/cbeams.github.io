@@ -3,6 +3,8 @@
 HOOKPORT=12345
 SERVEPORT=4000
 
+cd $(dirname $0)
+
 echo updating git repo...
 git pull
 
