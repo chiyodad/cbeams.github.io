@@ -27,17 +27,13 @@ layout: nil
    <content type="html">{{ entry.content | xml_escape }}</content>
  </entry>
  {% endfor %}
- {% for entry in site.stream %}
+ {% assign desc_stream = site.stream | reverse %}
+ {% for entry in desc_stream %}
  <entry>
    <title>{{ entry.title }}</title>
    <link href="{{ site.url }}{{ entry.url }}"/>
    <id>{{ site.url }}{{ entry.url }}</id>
    <published>{{ entry.date | date_to_xmlschema }}</published>
-   {% if entry.updated %}
-   <updated>{{ entry.updated | date_to_xmlschema }}</updated>
-   {% else %}
-   <updated>{{ entry.date | date_to_xmlschema }}</updated>
-   {% endif %}
    <content type="html">{{ entry.content | markdownify | xml_escape }}</content>
  </entry>
  {% endfor %}
