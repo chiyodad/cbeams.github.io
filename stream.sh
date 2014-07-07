@@ -5,7 +5,7 @@
 #  - Assumes /tmp dir exists and is writable.
 #  - Assumes all files in _stream are named <number>.md.
 #  - Assumes $EDITOR is a blocking command (`vi` is OK, `mate` isn't)
-#  - Commits new file but does not push.
+#  - Commits new file (unless '-n' is provided). Never pushes.
 #  - Does not clean up temp files.
 #
 # Recommendation: create a symlink to this file from somewhere on your $PATH.
@@ -39,5 +39,10 @@ EOF
 # copy the user-created message to the body of the new file
 cat $tmpfile >> $destfile
 
-git add $destfile
-git commit -m"Add $destfile" --only $destfile
+# commit unless the user specifies '-n'
+if [ "$1" == "-n" ]; then
+    echo "$destfile created but not committed."
+else
+    git add $destfile
+    git commit -m"Add $destfile" --only $destfile
+fi
