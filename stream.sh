@@ -31,6 +31,7 @@ destfile=_stream/$next_id.md
 cat > $destfile <<EOF
 ---
 layout: page
+title: $next_id
 date: $(date "+%Y-%m-%d %H:%M:%S %z")
 ---
 EOF

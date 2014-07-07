@@ -2,6 +2,7 @@ markdown:         redcarpet
 permalink:        /writing/:title
 title:            Chris Beams
 url:              http://chris.beams.io
+feedurl:          http://feed.chris.beams.io
 author:
   name:           Chris Beams
   email:          chris@beams.io
