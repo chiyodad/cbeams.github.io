@@ -5,6 +5,8 @@ title: Chris Beams
 
 {% for post in site.posts %}
   <div class="excerpt">
-    <span class="date">[{{ post.date | date: "%b %-d, %Y" }}] [{{ post.categories | last }}] [{{ post.title }}] {% if post.excerpt_tag %}{{ post.excerpt_tag | strip_html | markdownify | remove: '<p>' | remove: '</p>' }}{% else %}{{ post.excerpt | strip_html | markdownify | remove: '<p>' | remove: '</p>' }}{% endif %}</span>
+    {% if post.excerpt_tag %}{% assign raw_excerpt = post.excerpt_tag %}{% else %}{% assign raw_excerpt = post.excerpt %}{% endif %}
+    {% assign stripped_excerpt = raw_excerpt | strip_html | markdownify | remove: '<p>' | remove: '</p>' %}
+    <span class="date">[{{ post.date | date: "%b %-d, %Y" }}] [{{ post.categories | last }}] [{{ post.title }}] {{ stripped_excerpt }}</span>
   </div>
 {% endfor %}
