@@ -4,6 +4,7 @@ title: Hello World!
 date: 2014-06-14 09:05:00 +0200
 updated: 2014-06-18 14:38:00 +0200
 tags: essay
+alias: /a/hello
 ---
 
 <div class="message">
