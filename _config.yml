@@ -1,5 +1,5 @@
 markdown:         redcarpet
-permalink:        /writing/:title
+permalink:        /:categories/:title
 title:            Chris Beams
 url:              http://chris.beams.io
 feedurl:          http://feed.chris.beams.io

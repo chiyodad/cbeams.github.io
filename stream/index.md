@@ -3,7 +3,8 @@ layout: page
 title: Stream
 ---
 
-{% assign desc_stream = site.stream | reverse %}
-{% for item in desc_stream %}
- - [`{{ item.date | date: "%b" }} {{ item.date | date: "%-d, %I.%M%p" | downcase | remove: 'm' | replace: ' 0', ' ' }}`]({{ item.url }}) {{ item.content }}
+Everything posted to this site in one stream. Subscribe via [RSS]({{ site.feedurl }}/stream).
+
+{% for post in site.posts %}
+ - `{{ post.date | date: "%b %-d, %Y" }}` [`{{ post.dir | remove_first: '/' }}`]({{ post.dir }}) [{{ post.title }}]({{ post.url }})
 {% endfor %}
