@@ -8,10 +8,11 @@
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/darcula.css">
 
-  <link rel="alternate" type="application/atom+xml" title="cbeams" href="{{ site.feedurl }}/atom.xml">
-  <link rel="alternate" type="application/atom+xml" title="cbeams/thoughts" href="{{ site.feedurl }}/thoughts/atom.xml">
-  <link rel="alternate" type="application/atom+xml" title="cbeams/articles" href="{{ site.feedurl }}/articles/atom.xml">
-  <link rel="alternate" type="application/atom+xml" title="cbeams/quotes" href="{{ site.feedurl }}/quotes/atom.xml">
-  {% for project in site.data.projects %}{% if project.active == true %}<link rel="alternate" type="application/atom+xml" title="cbeams{{ project.path }}" href="{{ site.feedurl }}{{ project.path }}/atom.xml">
+  <link rel="alternate" type="application/atom+xml" title="(everything)" href="{{ site.feedurl }}/atom.xml">
+  <link rel="alternate" type="application/atom+xml" title="(everything except project logs)" href="{{ site.feedurl }}/atom-nologs.xml">
+  <link rel="alternate" type="application/atom+xml" title="/thoughts" href="{{ site.feedurl }}/thoughts/atom.xml">
+  <link rel="alternate" type="application/atom+xml" title="/articles" href="{{ site.feedurl }}/articles/atom.xml">
+  <link rel="alternate" type="application/atom+xml" title="/quotes" href="{{ site.feedurl }}/quotes/atom.xml">
+  {% for project in site.data.projects %}{% if project.active == true %}<link rel="alternate" type="application/atom+xml" title="{{ project.path }}" href="{{ site.feedurl }}{{ project.path }}/atom.xml">
   {% endif %}{% endfor %}
 </head>
