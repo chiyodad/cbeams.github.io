@@ -1,0 +1,14 @@
+ - name: Reboot & Research
+   path: /projects/reboot
+   log: true
+   active: true
+
+ - name: Learn Conversational German
+   path: /projects/german
+   log: true
+   active: true
+
+ - name: Spring
+   path: /projects/spring
+   log: false
+   active: false
