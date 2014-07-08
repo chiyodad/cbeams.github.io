@@ -3,3 +3,8 @@ layout: page
 title: Chris Beams
 ---
 
+{% for post in site.posts %}
+  <div class="excerpt">
+    <span class="date">[{{ post.date | date: "%b %-d, %Y" }}] [{{ post.categories | last }}] [{{ post.title }}] {% if post.excerpt_tag %}{{ post.excerpt_tag | strip_html | markdownify | remove: '<p>' | remove: '</p>' }}{% else %}{{ post.excerpt | strip_html | markdownify | remove: '<p>' | remove: '</p>' }}{% endif %}</span>
+  </div>
+{% endfor %}

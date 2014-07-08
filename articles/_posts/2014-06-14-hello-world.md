@@ -11,7 +11,9 @@ alias: /a/hello
 This post is just a placeholder. Stay tuned for real content!
 </div>
 
+{% excerpt %}
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. [Maecenas](http://example.com) congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor.
+{% endexcerpt %}
 
 ```java
 package bit.ledger;
