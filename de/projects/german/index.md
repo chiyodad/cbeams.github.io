@@ -5,7 +5,7 @@ title: Lernen Konversations Deutsch
 
 _Zustand: Laufend_
 
-> _Tipp: Dieser seite ist eine Übersetzung [das original](/projects/de-b2)._
+> _Tipp: Dieser seite ist eine Übersetzung [das original](/projects/german)._
 
 Als ich das schreibe im Juli 2014, ich habe für vier Jahre hin und wieder in Wien gewohnt, und ich habe hier vollzeit fur den letzten zwei bin.
 
