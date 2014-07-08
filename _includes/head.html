@@ -8,10 +8,10 @@
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/darcula.css">
 
-  <link rel="alternate" type="application/atom+xml" title="cbeams/stream" href="http://feed.chris.beams.io/stream">
-  <link rel="alternate" type="application/atom+xml" title="cbeams/thoughts" href="http://feed.chris.beams.io/thoughts">
-  <link rel="alternate" type="application/atom+xml" title="cbeams/articles" href="http://feed.chris.beams.io/articles">
-  <link rel="alternate" type="application/atom+xml" title="cbeams/quotes" href="http://feed.chris.beams.io/quotes">
-  {% for project in site.data.projects %}{% if project.active == true %}<link rel="alternate" type="application/atom+xml" title="cbeams{{ project.path }}" href="http://feed.chris.beams.io{{ project.path }}">
+  <link rel="alternate" type="application/atom+xml" title="cbeams/stream" href="{{ site.feedurl }}/stream/atom.xml">
+  <link rel="alternate" type="application/atom+xml" title="cbeams/thoughts" href="{{ site.feedurl }}/thoughts/atom.xml">
+  <link rel="alternate" type="application/atom+xml" title="cbeams/articles" href="{{ site.feedurl }}/articles/atom.xml">
+  <link rel="alternate" type="application/atom+xml" title="cbeams/quotes" href="{{ site.feedurl }}/quotes/atom.xml">
+  {% for project in site.data.projects %}{% if project.active == true %}<link rel="alternate" type="application/atom+xml" title="cbeams{{ project.path }}" href="{{ site.feedurl }}{{ project.path }}/atom.xml">
   {% endif %}{% endfor %}
 </head>

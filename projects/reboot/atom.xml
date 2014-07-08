@@ -1,0 +1,4 @@
+---
+layout: nil
+---
+{% assign category_name = 'projects/reboot' %}{% assign category_posts = site.categories.reboot %}{% include category_atom.xml %}
