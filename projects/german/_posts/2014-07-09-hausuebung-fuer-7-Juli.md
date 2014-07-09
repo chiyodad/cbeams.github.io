@@ -1,19 +1,19 @@
 ---
 layout: page
-title: Hausübung für 7 Juli
+title: Hausaufgabe 7. Juli
 date: 2014-07-09 16:21:52 +0200
 alias: /10712
 ---
-Es ist gut mit etwas leicht zu anfangen. Leichte Sätze macht leichte Absätze. Wiederholen, und bald hat man eine ganze Artikel.
+Es ist gut, mit etwas leichtem anzufangen. Leichte Sätze ergeben leichte Absätze. Und wenn man das so wiederholt, hat man bald einen ganz leichten Artikel.
 
-Was solltet man schreiben, dann? Natürlich über ein leichtes und nicht zu kompliziertes Thema, aber genauso was? Es hängt davon der Ziel. Mien Ziel ist einfach Deutsch zu sprechen, ohne Englisch, und mit Flüssigkeit fast im jeden Fall. Spezifisch, mein Ziel ist am Stufe B2 zu sprechen. Vielleicht, dann, die beste Übung ist eine Gespräch zu schrieben.
+Was sollte man dann schreiben? Natürlich über ein leichtes und nicht zu kompliziertes Thema, aber was genau? Es hängt vom Ziel ab. Mien Ziel ist es, fast immer flüssig Deutsch zu sprechen, ohne ins Englische zurückzufallen. Mein Ziel ist insbesondere, die Stufe B2 zu erreichern. Die beste Übung wäre dann vielleicht, ein Gespräch zu schreiben.
 
-Hier ist eine Gespräch zwischen ich (i) und ein Arbeiter bei der Post (p):
+Hier ist ein Gespräch zwischen mir (m) und einem Arbeiter bei der Post (p):
 
- - i: "Gruß Gott"
+ - m: "Gruß Gott"
  - p: "Gruß Gott. Bitte schön?
- - i: Ich möchte dieser Brief zu schicken mit Sicherheit.
- - p: Kein problem. Woher schicken Sie der Brief, denn?
- - i: Nach den USA.
- - p: OK, aber es wäre teuer! Mehr als zwanzig Euro...
- - i: ich weiß.
+ - m: Ich möchte diesen Brief versichert abschicken.
+ - p: Kein Problem. Wohin schicken Sie den Brief?
+ - m: In die USA.
+ - p: OK, aber das wäre teuer! Mehr als zwanzig Euro...
+ - m: ich weiß.
