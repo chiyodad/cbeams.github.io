@@ -47,3 +47,9 @@ Vienna_
 
 _A special thanks to [Benny Lewis](http://www.fluentin3months.com) for his recent [guest post](http://fourhourworkweek.com/2014/03/21/how-to-learn-a-foreign-language-2/) on Tim Ferriss' blog. This turned me on to italki, and reminded me that there is hope yet!_
 
+----
+
+## Logs
+
+{% include logs.html %}
+
