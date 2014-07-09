@@ -1,0 +1,11 @@
+#!/bin/bash
+
+let epoch=1404905000
+if [ "$1" == "-r" ]; then
+    let now=$2
+else
+    let now=$(date +%s)
+fi
+let ptime=($now-$epoch)
+echo $ptime
+exit 0

@@ -1,0 +1,128 @@
+#!/bin/bash
+#
+# Convenience script for adding a new post to any category (directory
+# with a '_posts' folder).
+#
+# Prompts the user for input by invoking $EDITOR--unless input is piped
+# to the command via stdin.
+#
+# Posts must be formatted like git commits: the first line is the
+# subject/title, followed by an empty line, and the remainder is treated
+# as the body of the post.
+#
+# USAGE:
+#
+#     post <category>
+#
+# CAVEATS:
+#
+#   - Assumes /tmp dir exists and is writable.
+#   - Assumes $EDITOR is a blocking command (`vi` is OK, `mate` isn't)
+#   - Commits new file (unless '-n' is provided). Never pushes.
+#   - Does not clean up temp files.
+#
+# RECOMMENDATIONS:
+#
+#     Create a symlink to this file from somewhere on your $PATH.
+#
+
+set -u
+
+# ensure the working directory is the root of the site
+if readlink $0 1>/dev/null; then
+    cd $(dirname $(readlink $0))
+else
+    cd $(dirname $0)
+fi
+
+# make sure the ptime command is available. this will be used to
+# calculate the date and the unique ID of each post, which is based
+# on the elapsed seconds since the inception (epoch) of the site.
+ptime=$PWD/ptime
+if [ ! -x $ptime ]; then
+    echo "post time calculator '$ptime' does not exist or is not executable. aborting."
+    exit 1
+fi
+
+# ensure the category supplied at the command line is valid, exists, etc
+category=${1///}
+if [ -z "$category" ]; then
+    echo "usage: $(basename $0) <category>"
+    exit 1
+fi
+if [ ! -d "$category" ]; then
+    echo "no such category '$category' in $PWD"
+    exit 1
+fi
+postdir=$category/_posts
+if [ ! -d "$postdir" ]; then
+    echo "category '$category' has no '_posts' directory"
+    exit 1
+fi
+
+# read in the content of the post
+tmpfile=/tmp/$RANDOM.txt
+touch $tmpfile || exit 1
+
+if [ -t 0 ]; then
+    # stdin pipe is not open. get input from editor.
+    $EDITOR $tmpfile
+else
+    # stdin pipe is available. read it to completion.
+    while read -r line; do
+        echo $line >> $tmpfile
+    done
+fi
+
+# abort if no content was provided
+let size=$(wc -c $tmpfile | perl -p -i -e 's/ +//' | cut -d" " -f1)
+if [ $size -le 1 ]; then
+    echo post had zero length. aborting.
+    exit 1
+fi
+
+# separate title and body, assuming content formatted like a git commit.
+title=$(head -1 $tmpfile)
+let lc_total=$(wc -l $tmpfile | perl -p -i -e 's/ +//' | cut -d" " -f1)
+let lc_body=$lc_total-2
+if [ $lc_body -lt 1 ]; then
+    echo "post body had zero length. aborting."
+    exit 1
+fi
+body=$(tail -$lc_body $tmpfile)
+
+# calculate all dates to be used in file name, front matter, and id.
+now=$(date +%s)
+jekyll_date=$(date -r $now "+%Y-%m-%d %H:%M:%S %z")
+file_date=$(date -r $now "+%Y-%m-%d")
+let canonical_post_id=$($ptime -r $now)
+
+# create slug by lowercasing title and translating spaces to dashes.
+# limit at 50 chars.
+slug=$(echo $title | cut -b1-50 | tr '[:upper:] ' '[:lower:]-')
+filename="$file_date-$slug.md"
+
+# create the new post file
+postfile="$postdir/$filename"
+if [ -f $postfile ]; then
+    echo "$postfile already exists. aborting."
+    exit 1
+fi
+touch $postfile || exit 1
+
+# write content to post file
+cat > $postfile <<EOF
+---
+layout: page
+title: $title
+date: $jekyll_date
+alias: /$canonical_post_id
+---
+$body
+EOF
+
+# commit the new post file
+git add $postfile
+git commit -m"Add $postfile" --only $postfile
+
+exit 0
