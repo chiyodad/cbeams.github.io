@@ -1,0 +1,4 @@
+---
+layout: nil
+---
+{% assign category_name = 'notes' %}{% assign category_posts = site.categories.notes %}{% include category_atom.xml %}

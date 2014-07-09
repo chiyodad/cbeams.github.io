@@ -5,9 +5,9 @@ title: Writing
 
 Things I write down, in various forms. See also the [stream](/stream).
 
-## [/thoughts](/thoughts) <small>([RSS]({{ site.feedurl }}/thoughts))</small>
+## [/notes](/notes) <small>([RSS]({{ site.feedurl }}/notes))</small>
 _Short form, Twitter-ish._
-{% for post in site.categories.thoughts %}
+{% for post in site.categories.notes %}
  - [{{ post.title }}]({{ post.url }})
 {% endfor %}
 
