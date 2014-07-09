@@ -3,6 +3,7 @@ layout: page
 title: Chris Beams
 ---
 <ul>
+{% strip %}
 {% for post in site.posts %}
   {% unless post.categories contains 'projects' and post.featured != true %}
     {% if post.excerpt_tag %}{% assign raw_excerpt = post.excerpt_tag %}{% else %}{% assign raw_excerpt = post.excerpt %}{% endif %}
@@ -12,4 +13,5 @@ title: Chris Beams
   </li>
   {% endunless %}
 {% endfor %}
+{% endstrip %}
 </ul>
