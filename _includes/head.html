@@ -12,6 +12,11 @@
   <link rel="alternate" type="application/atom+xml" title="/notes" href="{{ site.feedurl }}/notes/atom.xml">
   <link rel="alternate" type="application/atom+xml" title="/articles" href="{{ site.feedurl }}/articles/atom.xml">
   <link rel="alternate" type="application/atom+xml" title="/quotes" href="{{ site.feedurl }}/quotes/atom.xml">
-  {% for project in site.data.projects %}{% if project.active == true %}<link rel="alternate" type="application/atom+xml" title="{{ project.path }}" href="{{ site.feedurl }}{{ project.path }}/atom.xml">
-  {% endif %}{% endfor %}
+  {% strip %}
+  {% for project in site.data.projects %}
+    {% if project.active == true %}
+  <link rel="alternate" type="application/atom+xml" title="{{ project.path }}" href="{{ site.feedurl }}{{ project.path }}/atom.xml">
+    {% endif %}
+  {% endfor %}
+  {% endstrip %}
 </head>
