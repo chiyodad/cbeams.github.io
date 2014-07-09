@@ -1,31 +1,34 @@
 #!/bin/bash
 #
-# Convenience script for adding a new post to any category (directory
-# with a '_posts' folder).
+# NAME
+#     post -- add a new post to a Jekyll-managed site
 #
-# Prompts the user for input by invoking $EDITOR--unless input is piped
-# to the command via stdin.
+# SYNOPSIS
+#     post {category}
 #
-# Posts must be formatted like git commits: the first line is the
-# subject/title, followed by an empty line, and the remainder is treated
-# as the body of the post.
+# DESCRIPTION
+#     Convenience script for adding a new post to any category in the Jekyll
+#     sense, meaning any directory that contains a folder named '_posts'.
 #
-# USAGE:
+#     Prompts the user for input by invoking $EDITOR--unless input is piped to
+#     the command via stdin.
 #
-#     post <category>
+#     Posts must be formatted like git commits: the first line is the
+#     subject/title, followed by an empty line, and the remainder is treated as
+#     the body of the post.
 #
-# CAVEATS:
+# CAVEATS
+#     - Assumes /tmp dir exists and is writable.
+#     - Assumes $EDITOR is a blocking command (`vi` is OK, `mate` isn't)
+#     - Commits new file (unless '-n' is provided). Never pushes.
+#     - Does not clean up temp files.
 #
-#   - Assumes /tmp dir exists and is writable.
-#   - Assumes $EDITOR is a blocking command (`vi` is OK, `mate` isn't)
-#   - Commits new file (unless '-n' is provided). Never pushes.
-#   - Does not clean up temp files.
-#
-# RECOMMENDATIONS:
-#
+# RECOMMENDATIONS
 #     Create a symlink to this file from somewhere on your $PATH.
 #
-
+# SEE ALSO
+#     ptime
+#
 set -u
 
 # ensure the working directory is the root of the site

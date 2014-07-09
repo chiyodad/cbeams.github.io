@@ -1,4 +1,30 @@
 #!/bin/bash
+#
+# NAME
+#     ptime -- calculate minutes since the local epoch
+#
+# SYNOPSIS
+#     ptime [-r epoch_seconds]
+#
+# DESCRIPTION
+#     ptime calculates the number of minutes since the 'epoch post' marking the
+#     0-minute of this site. 'ptime' is short for 'post time' as the values
+#     returned from it are used as unique canonical ids for each page and post
+#     within the site.  This script is primarily used by the `post` script
+#     (also found in this directory), but is factored out separately as it can
+#     be useful on its own, e.g. when creating and dating a post by hand.
+#
+# OPTIONS
+#     -r epoch_seconds
+#         Calculate ptime relative to the specified date in the past or future,
+#         expressed as number of unix epoch seconds.  When ptime is invoked
+#         without the -r option, the current value of `date +%s` is used as
+#         epoch seconds. Note that '-r' is borrowed from the `date` command's
+#         option of the same name due to their similar semantics.
+#
+# SEE ALSO
+#     post, date
+#
 
 let epoch=1404905000
 if [ "$1" == "-r" ]; then
@@ -6,6 +32,6 @@ if [ "$1" == "-r" ]; then
 else
     let now=$(date +%s)
 fi
-let ptime=($now-$epoch)
+let ptime=($now-$epoch)/60
 echo $ptime
 exit 0
