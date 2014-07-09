@@ -7,6 +7,6 @@ title: Chris Beams
   <div class="excerpt">
     {% if post.excerpt_tag %}{% assign raw_excerpt = post.excerpt_tag %}{% else %}{% assign raw_excerpt = post.excerpt %}{% endif %}
     {% assign stripped_excerpt = raw_excerpt | strip_html | markdownify | remove: '<p>' | remove: '</p>' %}
-    <span class="date">[{{ post.date | date: "%b %-d, %Y" }}] [{{ post.categories | last }}] [{{ post.title }}] {{ stripped_excerpt }}</span>
+    <span class="date">{{ post.date | date: "%b %-d, %Y" }}</span> <span class="category">{{ post.categories | last }}</span> [{{ post.title }}] {{ stripped_excerpt }}
   </div>
 {% endfor %}
