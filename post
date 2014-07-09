@@ -45,7 +45,7 @@ if [ ! -x $ptime ]; then
 fi
 
 # ensure the category supplied at the command line is valid, exists, etc
-category=${1///}
+category=$1
 if [ -z "$category" ]; then
     echo "usage: $(basename $0) <category>"
     exit 1
