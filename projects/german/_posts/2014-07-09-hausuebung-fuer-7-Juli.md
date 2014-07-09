@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Hausübung
+title: Hausübung für 7 Juli
 date: 2014-07-09 16:21:52 +0200
 alias: /10712
 ---
