@@ -5,7 +5,7 @@ title: Learn Conversational German
 
 _Status: Ongoing_
 
-At the time of my writing this in July 2014, I've lived in [Vienna](/places/austria/vienna) off and on over the last four years, and I've been here full-time for the last two.
+At the time of my writing this in July 2014, I've lived in Vienna off and on over the last four years, and I've been here full-time for the last two.
 
 In that time, I've failed to achieve anything close to conversational fluency in German. I'm not talking about making mistakes and being imperfect; I mean that if it's anything more complex than ordering my food, chances are I won't form the first sentence.
 
