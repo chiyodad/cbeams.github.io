@@ -7,8 +7,3 @@
    path: /projects/german
    log: true
    active: true
-
- - name: Spring
-   path: /projects/spring
-   log: false
-   active: false

@@ -5,7 +5,7 @@ title: Reboot & Research
 
 _Status: Ongoing_
 
-In May 2014, I left my position with the [Spring](../spring) team to dedicate my time to independent research and develop my writing skills. This site was created to support both of these efforts.
+In May 2014, I left my position with the [Spring](http://spring.io) team to dedicate my time to independent research and develop my writing skills. This site was created to support both of these efforts.
 
 When I say "independent research", I don't mean anything formal. I simply mean that I've become fascinated with certain things, and I want to spend as much time as I can understanding them in the hope that I can produce new ideas and add value.
 
