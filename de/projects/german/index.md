@@ -5,7 +5,7 @@ title: Lernen Konversations Deutsch
 
 _Zustand: Laufend_
 
-> _Tipp: Dieser seite ist eine Übersetzung [das original](/projects/german)._
+> _Anmerkung: Dieser seite ist eine (unvollständige) Übersetzung [des Originals](/projects/german). Es wurde am 9. Juli von [Itay Depner](http://www.italki.com/teacher/1209413) [korregiert](https://github.com/cbeams/chris.beams.io/commit/c74f7c)._
 
 Ich schreibe diese Zeilen im Juni 2014. Ich lebe nun seit vier Jahren hin und wieder in Wien, in den letzten beiden Jahren bin ich hier sogar ständig ansässig.
 
@@ -25,3 +25,5 @@ Im Laufe der Zeit habe ich verschiedene Lernansätze ausprobiert, darunter die f
  - Spielerisches Lernen mit [Duolingo](https://en.wikipedia.org/wiki/Duolingo)
 
 Ich habe dabei zweifelsfrei viel Deutsch gelernt, und mein Hörverständnis hat sich sehr verbessert (mein Leseverständnis ist sogar noch besser). Das ist aber auch kein Trost. 
+
+[_Lesen Sie den Rest in Englisch_](/projects/german)
