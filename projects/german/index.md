@@ -36,7 +36,7 @@ So with this project, I'm renewing my effort to learn German, but this time with
 
 It's worth noting that I've never set such a goal before. It's always been a more general intention to simply "learn German". In hindsight, it's not too surprising that this hasn't worked out well.
 
-As for focusing on conversation, I've recently discovered [italki.com](http://italki.com), a marketplace for matching language instructors and students. All lessons are held online, via Skype or similar. I've had an introductory session with an instructor already, and plan to use this platform to get as much "conversation exercise" as possible. I'll work with my instructors there to get a sense of how far away I am from achieving my goal of B2-level fluency, and I'll post progress updates here in [writing](/writing).
+As for focusing on conversation, I've recently discovered [italki.com](http://italki.com), a marketplace for matching language instructors and students. All lessons are held online, via Skype or similar. I've had an introductory session with an instructor already, and plan to use this platform to get as much "conversation exercise" as possible. I'll work with my instructors there to get a sense of how far away I am from achieving my goal of B2-level fluency, and I'll post progress updates here in the [project logs](#logs).
 
 _July 3, 2014<br/>
 Vienna_
@@ -49,7 +49,7 @@ _A special thanks to [Benny Lewis](http://www.fluentin3months.com) for his recen
 
 ----
 
-## Logs
+## Logs <small>([RSS]({{ site.feedurl }}{{ page.dir }}/atom.xml))</small><a name="logs"/>
 
 {% include logs.html %}
 
