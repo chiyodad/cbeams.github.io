@@ -51,5 +51,5 @@ _A special thanks to [Benny Lewis](http://www.fluentin3months.com) for his recen
 
 ## Logs <small>([RSS]({{ site.feedurl }}{{ page.dir }}/atom.xml))</small><a name="logs"/>
 
+{% assign collection_posts = site.tags.german %}
 {% include logs.html %}
-

@@ -1,4 +1,10 @@
 ---
 layout: nil
 ---
-{% assign category_name = 'projects/reboot' %}{% assign category_posts = site.categories.reboot %}{% include category_atom.xml %}
+<?xml version="1.0" encoding="utf-8"?>
+{% strip %}
+{% assign collection_name = 'reboot' %}
+{% assign collection_path = 'projects/reboot' %}
+{% assign collection_posts = site.tags.reboot %}
+{% include collection_atom.xml %}
+{% endstrip %}

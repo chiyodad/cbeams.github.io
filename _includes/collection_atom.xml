@@ -1,21 +1,20 @@
-<?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
- <title>cbeams/{{ category_name }}</title>
- <link href="{{ site.feedurl }}/{{ category_name }}" rel="self"/>
- <link href="{{ site.url }}/{{ category_name }}"/>
+ <title>cbeams/{{ collection_name }}</title>
+ <link href="{{ site.feedurl }}/{{ collection_path }}/atom.xml" rel="self"/>
+ <link href="{{ site.url }}/{{ collection_path }}"/>
  <id>{{ site.url }}</id>
  <updated>{{ site.time | date_to_xmlschema }}</updated>
  <author>
    <name>{{ site.author.name }}</name>
    <email>{{ site.author.email }}</email>
  </author>
- {% for post in category_posts %}
+ {% for post in collection_posts %}
  <entry>
    <title>{{ post.title }}</title>
    <link href="{{ site.url }}{{ post.url }}"/>
    <id>{{ site.url }}{{ post.id }}</id>
-   {% for category in post.categories %}
-   <category term="{{ category }}"/>
+   {% for collection in post.categories %}
+   <category term="{{ collection_name }}"/>
    {% endfor %}
    <published>{{ post.date | date_to_xmlschema }}</published>
    {% if post.updated %}

@@ -1,4 +1,10 @@
 ---
 layout: nil
 ---
-{% assign category_name = 'notes' %}{% assign category_posts = site.categories.notes %}{% include category_atom.xml %}
+<?xml version="1.0" encoding="utf-8"?>
+{% strip %}
+{% assign collection_name = 'notes' %}
+{% assign collection_path = 'notes' %}
+{% assign collection_posts = site.categories.notes %}
+{% include collection_atom.xml %}
+{% endstrip %}

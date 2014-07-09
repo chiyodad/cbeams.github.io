@@ -1,4 +1,10 @@
 ---
 layout: nil
 ---
-{% assign category_name = 'quotes' %}{% assign category_posts = site.categories.quotes %}{% include category_atom.xml %}
+<?xml version="1.0" encoding="utf-8"?>
+{% strip %}
+{% assign collection_name = 'quotes' %}
+{% assign collection_path = 'quotes' %}
+{% assign collection_posts = site.categories.quotes %}
+{% include collection_atom.xml %}
+{% endstrip %}

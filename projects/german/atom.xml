@@ -1,4 +1,10 @@
 ---
 layout: nil
 ---
-{% assign category_name = 'projects/german' %}{% assign category_posts = site.categories.german %}{% include category_atom.xml %}
+<?xml version="1.0" encoding="utf-8"?>
+{% strip %}
+{% assign collection_name = 'german' %}
+{% assign collection_path = 'projects/german' %}
+{% assign collection_posts = site.tags.german %}
+{% include collection_atom.xml %}
+{% endstrip %}
