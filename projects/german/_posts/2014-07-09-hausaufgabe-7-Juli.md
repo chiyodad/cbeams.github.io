@@ -3,6 +3,7 @@ layout: page
 title: Hausaufgabe 7. Juli
 date: 2014-07-09 16:21:52 +0200
 alias: /10712
+featured: true
 ---
 
 _Note: This is the first of probably many homework (Hausaufgabe) assignments as [I work my way toward B2-level German](/projects/german). I post them here for easy review and correction by my teachers and to track my progress over time._
