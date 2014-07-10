@@ -1,0 +1,44 @@
+#!/bin/bash
+#
+# NAME
+#     etime -- calculate minutes since a given epoch
+#
+# SYNOPSIS
+#     etime [-r epoch_seconds]
+#
+# DESCRIPTION
+#     etime calculates the number of minutes since a given epoch or starting
+#     point, which itself is measured in seconds since the unix epoch.  Values
+#     returned from etime are used as unique canonical ids for each page and
+#     post within the site. The script is primarily used by the `post` script
+#     (also found in this directory), but is factored out separately as it can
+#     be useful on its own, e.g. when creating and dating a post by hand.
+#
+# OPTIONS
+#     -r epoch_seconds
+#         Calculate time relative to our epoch since (or until) the given date,
+#         expressed as unix epoch seconds.  When etime is invoked without the
+#         -r option, the current value of `date +%s` is used as the default
+#         value of epoch_seconds. Note that '-r' is borrowed from the `date`
+#         command's option of the same name due to their similar semantics.
+#
+# SEE ALSO
+#     post, date
+#
+
+#
+# $ TZ=MST7MDT date -j -f "%m-%d-%Y %T" "07-02-1978 07:02:00" +%s
+# 268232520
+#
+# $ TZ=MST7MDT date -r 268232520
+# Sun Jul  2 07:02:00 MDT 1978
+#
+let epoch=268232520
+if [ "$1" == "-r" ]; then
+    let now=$2
+else
+    let now=$(date +%s)
+fi
+let etime=($now-$epoch)/60
+echo $etime
+exit 0

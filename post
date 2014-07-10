@@ -27,7 +27,7 @@
 #     Create a symlink to this file from somewhere on your $PATH.
 #
 # SEE ALSO
-#     ptime
+#     etime
 #
 set -u
 
@@ -38,12 +38,12 @@ else
     cd $(dirname $0)
 fi
 
-# make sure the ptime command is available. this will be used to
+# make sure the etime command is available. this will be used to
 # calculate the date and the unique ID of each post, which is based
 # on the elapsed seconds since the inception (epoch) of the site.
-ptime=$PWD/ptime
-if [ ! -x $ptime ]; then
-    echo "post time calculator '$ptime' does not exist or is not executable. aborting."
+etime=$PWD/etime
+if [ ! -x $etime ]; then
+    echo "epoch time calculator '$etime' does not exist or is not executable. aborting."
     exit 1
 fi
 
@@ -98,7 +98,7 @@ body=$(tail -$lc_body $tmpfile)
 now=$(date +%s)
 jekyll_date=$(date -r $now "+%Y-%m-%d %H:%M:%S %z")
 file_date=$(date -r $now "+%Y-%m-%d")
-let canonical_post_id=$($ptime -r $now)
+let canonical_post_id=$($etime -r $now)
 
 # create slug by lowercasing title and translating spaces to dashes.
 # limit at 50 chars.
