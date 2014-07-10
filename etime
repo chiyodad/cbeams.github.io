@@ -26,16 +26,32 @@
 #     post, date
 #
 
-#
-# $ TZ=MST7MDT date -j -f "%m-%d-%Y %T" "07-02-1978 07:02:00" +%s
-# 268232520
-#
-# $ TZ=MST7MDT date -r 268232520
-# Sun Jul  2 07:02:00 MDT 1978
-#
-let epoch=268232520
-if [ "$1" == "-r" ]; then
-    let now=$2
+while getopts ":e:r:" opt; do
+    case $opt in
+        e)
+            epoch=$OPTARG
+            ;;
+        r)
+            relative_date=$OPTARG
+            ;;
+        \?)
+            echo "Invalid option: -$OPTARG" >&2
+            exit 1
+            ;;
+        :)
+            echo "Option -$OPTARG requires an argument." >&2
+            exit 1
+            ;;
+    esac
+done
+
+if [ -z "$epoch" ]; then
+    echo "Option -e is required"
+    exit 1
+fi
+
+if [ -n "$relative_date" ]; then
+    let now=$relative_date
 else
     let now=$(date +%s)
 fi
