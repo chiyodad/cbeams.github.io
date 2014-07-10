@@ -5,7 +5,7 @@ title: Lernen Konversations Deutsch
 
 _Zustand: Laufend_
 
-> _Anmerkung: Dieser seite ist eine (unvollständige) Übersetzung [des Originals](/projects/german). Es wurde am 9. Juli von [Itay Depner](http://www.italki.com/teacher/1209413) [korregiert](https://github.com/cbeams/chris.beams.io/commit/c74f7c)._
+> _Anmerkung: Dieser seite ist eine (unvollständige) Übersetzung [des Originals](/projects/german). Es wurde am 9. Juli von [Itay Depner](http://www.italki.com/teacher/1209413?ref=1531788) [korregiert](https://github.com/cbeams/chris.beams.io/commit/c74f7c)._
 
 Ich schreibe diese Zeilen im Juni 2014. Ich lebe nun seit vier Jahren hin und wieder in Wien, in den letzten beiden Jahren bin ich hier sogar ständig ansässig.
 
