@@ -116,7 +116,7 @@ touch $postfile || exit 1
 # write content to post file
 cat > $postfile <<EOF
 ---
-layout: page
+layout: post
 title: $title
 date: $jekyll_date
 alias: /$canonical_post_id

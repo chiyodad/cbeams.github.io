@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: post
 title: Hausaufgabe 7. Juli
 date: 2014-07-09 16:21:52 +0200
 alias: /10712
