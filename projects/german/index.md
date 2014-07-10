@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Learn Conversational German
+alias: /18943010
 ---
 
 _Status: Ongoing_

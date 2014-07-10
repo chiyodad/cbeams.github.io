@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Writing
+alias: /18908500
 ---
 
 Things I write down, in various forms. [Subscribe to everything via RSS]({{ site.feedurl }}/atom.xml).

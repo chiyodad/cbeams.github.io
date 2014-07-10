@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Lernen Konversations Deutsch
+alias: /18943010
 ---
 
 _Zustand: Laufend_

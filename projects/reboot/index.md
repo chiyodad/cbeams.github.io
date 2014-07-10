@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Reboot & Research
+alias: /18935864
 ---
 
 _Status: Ongoing_
