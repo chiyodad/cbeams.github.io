@@ -14,7 +14,7 @@
   <link rel="alternate" type="application/atom+xml" title="/quotes" href="{{ site.feedurl }}/quotes/atom.xml">
   {% strip %}
   {% for project in site.data.projects %}
-    {% if project.active == true %}
+    {% if project.active and project.log %}
   <link rel="alternate" type="application/atom+xml" title="{{ project.path }}" href="{{ site.feedurl }}{{ project.path }}/atom.xml">
     {% endif %}
   {% endfor %}

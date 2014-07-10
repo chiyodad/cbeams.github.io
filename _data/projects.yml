@@ -1,6 +1,6 @@
  - name: Reboot & Research
    path: /projects/reboot
-   log: true
+   log: false
    active: true
 
  - name: Learn Conversational German
