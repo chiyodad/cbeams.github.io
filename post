@@ -29,7 +29,6 @@
 # SEE ALSO
 #     etime
 #
-set -u
 
 # ensure the working directory is the root of the site
 if readlink $0 1>/dev/null; then
@@ -37,16 +36,6 @@ if readlink $0 1>/dev/null; then
 else
     cd $(dirname $0)
 fi
-
-# set the epoch equal to my birthdate
-#
-#     $ TZ=MST7MDT date -j -f "%m-%d-%Y %T" "07-02-1978 07:02:00" +%s
-#     268232520
-#
-#     $ TZ=MST7MDT date -r 268232520
-#     Sun Jul  2 07:02:00 MDT 1978
-#
-epoch=268232520
 
 # make sure the etime command is available. this will be used to
 # calculate the date and the unique ID of each post, which is based
@@ -108,7 +97,7 @@ body=$(tail -$lc_body $tmpfile)
 now=$(date +%s)
 jekyll_date=$(date -r $now "+%Y-%m-%d %H:%M:%S %z")
 file_date=$(date -r $now "+%Y-%m-%d")
-let canonical_post_id=$($etime -e $epoch -r $now)
+let canonical_post_id=$($etime -r $now)
 
 # create slug by lowercasing title and translating spaces to dashes.
 # limit at 50 chars.

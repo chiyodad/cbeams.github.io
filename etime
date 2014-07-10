@@ -15,16 +15,29 @@
 #     be useful on its own, e.g. when creating and dating a post by hand.
 #
 # OPTIONS
-#     -r epoch_seconds
+#     -e epoch_seconds
+#         The epoch from which all times should be calculated. May be a birth
+#         date, inception of a website or company, etc.
+#
+#     -r relative_unix_time
 #         Calculate time relative to our epoch since (or until) the given date,
 #         expressed as unix epoch seconds.  When etime is invoked without the
 #         -r option, the current value of `date +%s` is used as the default
-#         value of epoch_seconds. Note that '-r' is borrowed from the `date`
-#         command's option of the same name due to their similar semantics.
+#         value of relative_unix_time. Note that '-r' is borrowed from the
+#         `date` command's option of the same name due to their similar
+#         semantics.
+#
+# ENVIRONMENT
+#     The following environment variables affect the execution of etime:
+#
+#     EPOCH
+#         Alternative to -e option. At least one of these must be provided, and
+#         if both are, then the -e value overrides.
 #
 # SEE ALSO
 #     post, date
 #
+epoch=$EPOCH
 
 while getopts ":e:r:" opt; do
     case $opt in
@@ -46,7 +59,7 @@ while getopts ":e:r:" opt; do
 done
 
 if [ -z "$epoch" ]; then
-    echo "Option -e is required"
+    echo "Either env variable EPOCH or command option -e must be provided"
     exit 1
 fi
 
