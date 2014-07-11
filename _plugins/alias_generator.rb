@@ -41,12 +41,20 @@ module Jekyll
     def process_posts
       @site.posts.each do |post|
         generate_aliases(post.url, post.data['alias'])
+        timestamp = post.data['timestamp']
+        if timestamp != nil
+            generate_aliases(post.url, "/#{timestamp}")
+        end
       end
     end
 
     def process_pages
       @site.pages.each do |page|
         generate_aliases(page.destination('').gsub(/index\.(html|htm)$/, ''), page.data['alias'])
+        timestamp = page.data['timestamp']
+        if timestamp != nil
+            generate_aliases(page.url, "/#{timestamp}")
+        end
       end
     end
 

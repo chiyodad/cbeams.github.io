@@ -1,7 +1,7 @@
 ---
 layout: page
 title: More
-alias: /18910012
+timestamp: 18910012
 ---
 
  - [reading](/reading)

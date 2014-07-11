@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Lernen Konversations Deutsch
-alias: /18943011
+timestamp: 18943011
 ---
 
 _Zustand: Laufend_

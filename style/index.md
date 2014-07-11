@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Example content
-alias: /18945326
+timestamp: 18945326
 ---
 
 
