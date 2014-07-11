@@ -2,27 +2,34 @@
 layout: post
 title: Epoch
 ---
-I was born in Great Falls, Montana on the 2nd of July, 1978 at 7:02am. That date is the beginning of time with regard to anything I could have experienced, done or influenced. Let's call it my zero-moment, my _personal [epoch](http://en.wiktionary.org/wiki/epoch)_.
 
-The zero-moment for the Unix operating system was midnight on the 1st of January, 1970 UTC. This is called the _Unix epoch_, and the number of seconds that have elapsed since then is called _epoch seconds_, or [_Unix time_](tk). This is a wonderfully simple way of representing any date with a single number.
+I was born in Great Falls, Montana on July 2nd, 1978 at 7:02 AM, and I began writing this post in Vienna, Austria on July 11th, 2014 at 1:32 PM. Because the latter occurred 18,947,431 minutes after the former, this post can also be accessed at [chris.beams.io/18947431]({{ site.url }}/18947431). Go ahead, click it—you'll be redirected back here.
 
-For example, here is the `date` command displaying Unix time `0` in human-readable form:
+Back? Great. So what's this all about?
 
-    $ TZ=UTC date -r 0
-    Thu Jan  1 00:00:00 UTC 1970
+What if we thought of our birthdate not in terms of a calendar date, but as our "zero-moment", our own personal _epoch_? If our birthdate represents 0 on on our personal timeline, then we can then timestamp any later event in our lives in terms of the amount of time that has elapsed since that moment.
 
-I am writing this post in Vienna, Austria on the 10th of July, 2014 at 4:20pm. Here's `date` again—this time with no arguments—to tell me so:
+Combine that simple number with a personal domain name, and you have a URL scheme that can accommodate recording anything and everything you've ever done or experienced.
 
-    $ date
-    Thu Jul 10 16:20:00 CEST 2014
 
-Or, the current date displayed in epoch seconds:
 
-    $ date "+%s"
-    1405002000
+The reason started out 
 
-This means that in Unix time, this post is 1,405,002,000 seconds old. That number is a simple, portable timestamp that can be translated into any format, time zone, etc. Elegant, right?
+We all have a birthday, and besides serving as an annual excuse to party, we don't use it for much. 
 
-    $ date -r 1405002000 "+%d/%m/%Y %H:%M %Z"
-    10/07/2014 16:20 CEST
+In fact, every page on this site is available in timestamped form.
 
+
+
+
+
+---
+
+
+When putting this site together, I thought it would be a good idea to give every page a shortlink-friendly numerical ID that redirects to a human-readable URL. For example, http://chris.beams.io/1234 might redirect to http://chris.beams.io/notes/some-long-post-title.
+
+This is of course not a new idea, and has been implemented many times by various blogging platforms and content management systems. However, this is a simple, statically-generated site without the benefit (or burden) of a database to keep track of and assign new IDs. So I wondered: what's the best way to implement such a scheme?
+
+I began by 
+
+This is good for passing around shortlinks. For example, the page you're looking at now 
