@@ -362,7 +362,7 @@ span.category {
     padding: 2px 4px; color: #000; background-color: #ccc; border-radius: 4px; border: 0px;
 }
 
-li {
+ul.li {
     list-style: none;
     margin-bottom: 1rem;
 }
