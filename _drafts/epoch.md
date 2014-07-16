@@ -58,7 +58,7 @@ This site is statically generated using [Jekyll](http://jekyllrb.com). That mean
     blah blah blah blah blah blah blah  <-- content
     blah blah blah blah blah blah blah.
 
-This means that assigning an ID to each page is easy: just add a new entry to the metadata at the top of each file. Something like this:
+This means that assigning an ID to each page is easy. Just add a new entry to the metadata at the top of each file. Something like this:
 
     ---
     title: A Quick Example
@@ -74,7 +74,7 @@ Of course something needs to handle the new `id` metadata. And that something ne
     HTTP/1.1 301 Moved Permanently
     Location: http://chris.beams.io/posts/some-longer-url
 
-This seems simple, but it's actually not easy to do with Jekyll. Jekyll generates a site once at startup and dumps out a bunch of HTML files. Afterward, the web server (Ruby's WEBrick) is just a black box for serving those files. There is no mechanism for telling the server how it should issue redirects for specific paths<sup><a name="ref-redirects" href="#fn-redirects">1</a></sup>.
+This seems like a simple task, but it's actually not easy to do with Jekyll. Jekyll generates a site once at startup and dumps out a bunch of HTML files. Afterward, the web server (Ruby's WEBrick) is just a black box for serving those files. There is no mechanism for telling the server how it should issue redirects for specific paths<sup><a name="ref-redirects" href="#fn-redirects">1</a></sup>.
 
 
 ### Get meta
@@ -82,15 +82,13 @@ We can still make the desired redirection happen, but we have to take a differen
 
 `1234/index.html`
 
-```html
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="refresh" 
-          content="0;url=/posts/some-longer-url" />
-  </head>
-</html>
-```
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <meta http-equiv="refresh" 
+              content="0;url=/posts/some-longer-url" />
+      </head>
+    </html>
 
 [Meta refresh](https://en.wikipedia.org/wiki/Meta_refresh) FTW. This method isn't as clean or efficient as normal HTTP redirects, but it gets the job done. The user still requests the shortlink
 
@@ -134,7 +132,7 @@ Now when Jekyll generates the site, it creates meta refresh pages for any `alias
 Note the `<link rel="canonical" ... />` element. This is a nice addition by the alias generator plugin. It's a [relatively recent](http://www.mattcutts.com/blog/canonical-link-tag/) standard agreed upon by major search engines to help them distinguish and [avoid indexing duplicate content](https://en.wikipedia.org/wiki/Canonical_link_element).
 
 ## Choosing an ID scheme
-So that's how I got redirects worked out. Thus far I've been using `1234` as an example page ID. Now it's time to choose an actual scheme to use in practice.
+So that's how I got redirects worked out tk. Thus far I've been using `1234` as an example page ID. Now it's time to choose an actual scheme to use in practice.
 
 ### The criteria
 
@@ -177,7 +175,7 @@ The seemingly simplest approach for an ID scheme would be to start from 1 and in
 #### 2. Algorithmically reversible shortlinks
 Tantek's [algorithmically reversible shortlinks](http://tantek.pbworks.com/w/page/21743973/Whistle) deserve a mention here. I like this design and Tantek's thinking behind it.
 
-It's also relatively complex, requiring less-than-trivial code to implement and requires some up-front thinking about categories and prefixes that I wasn't quite comfortable with. It requires at least some thinking every time you post because one must at least decide which category/prefix a post will fall into before a shortlink ID can be created.
+It's also relatively complex, requiring less-than-trivial code to implement and requires some up-front design of categories and prefixes that I wasn't quite comfortable with. It requires at least some thinking every time you post because one must at least decide which category/prefix a post will fall into before a shortlink ID can be created.
 
 In short, while I think there's a lot to like in Tantek's approach, it's basically overengineered for my purposes. It might be perfect for others though. I recommend giving his docs a read in any case.
 
@@ -199,13 +197,13 @@ why not simply create a shorter, single-word top-level alias?
 
 There are a several problems that disqualify this approach as a universal solution.
 
- - **It requires thinking.** Per criteria #3, if one is issuing posts at Twitter-level frequency, it becomes impractical to have to 'design' a shortcut link for each 'tweet'.
+ - **It requires thinking.** Per criteria #3, if one is issuing posts at Twitter-level size and frequency, it becomes undesirable to have to 'design' a shortcut link for each 'tweet'.
 
- - **It requires duplicate checking**. For each new top-level shortlink created, one must check to ensure the name hasn't already been used. This is not a problem in the beginning. It becomes more burdensome the more posts one creates. The checking could reasonably automated, but it's just one more moving part. variation on  Also, it becomes an increasingly necessary burden over time to check for duplicates. Have I already used this shortlink name?
+ - **It requires duplicate checking**. For each new top-level shortlink created, one must check to ensure the name hasn't already been used. This is not a problem in the beginning. It becomes more burdensome the more posts one creates. This check could reasonably be automated, but at the cost of yet another moving part.
 
- - **It pollutes the top-level namespace**. Example: I create a shortlink named 'notes' today, but wish to have a section of the site named 'notes' tomorrow. A large number of top-level shortlinks serves to pollute and inadvertently constrain that namespace over time.
+ - **It pollutes the top-level namespace**. Example: I create a shortlink named '/notes' today, but wish to create a new section of the site called '/notes' tomorrow. I cannot do the latter without breaking the former. A large number of top-level, dictionary-word shortlinks serves to pollute and inadvertently constrain that namespace over time.
 
-That having been said, I like this option, and predict I'll use it on occassion. It is not mutually exclusive with other, more automatable schemes. For example, all pages might be assigned a numeric shortlink ID, but certain pages might be deemed important enough to be given these one-off aliases to increase impact, memorizability, etc.
+That having been said, I still like this option, and predict I'll use it on occassion. It is not mutually exclusive with other, more automatable schemes. For example, all pages might be assigned a numeric shortlink ID, but certain pages might be deemed important enough to be given these one-off aliases to increase impact, memorizability, etc.
 
 #### 5. Numeric date representation
 For example, a post published on July 15th, 2014 at 8:50 AM might be assigned the following shortlink
@@ -239,7 +237,7 @@ Could this be the best shortlink option yet?
 Returning to the criteria above, this approach seems to meet them all. It is **reasonably short**, does **not require a database**, can be generated automatically with **no thinking required**, is **simple to generate** using standard unix tools or libraries available in every modern language, and is not only **future-proof**, but **past-proof**, in the sense that it allows for backdating entries without risk of ID collision or reindexing.
 
 ## Epoch win
-When I thought of using epoch seconds for shortlinks, I was surprised I hadn't seen it done before. Perhaps it has been and I just didn't find it.  As I thought about it further, though, I began thinking beyond shortlinks; I began thinking about personal timelines.
+When I thought of using epoch seconds for shortlinks, I was surprised I hadn't seen it done before. Perhaps it has been and I just didn't find it.  As I thought about it further, though, I began thinking beyond shortlinks and began thinking about personal timelines.
 
 If the shortlink for a post is represented as its date of publication in epoch seconds (or minutes), it is not only a shortlink, but a timestamp. In the context of a personal website such as this one, that timestamp communicates what I was doing at that moment. It represents a point on the timeline of my life.
 
@@ -306,6 +304,8 @@ We now have a number suitable for use in a shortlink url, e.g.:
 
     http://chris.beams.io/18953153
 
+---
+
 ## Tools
 
 ### etime
@@ -336,6 +336,8 @@ For example, if the pages pointed to by epoch-timestamped URLs included addition
 It's also interesting to think about the development of tools that import or index personal events from around the web. For example, a tool that imports all of a user's Tweets could use epoch-timestamped URLs based on the tweet's [`created_at` date ](https://dev.twitter.com/docs/api/1.1/get/statuses/show/%3Aid). The same goes for Facebook posts, Amazon product reviews, questions asked and answered on Q&A sites, issues and comments on bug trackers, comments on blogs, or any other activity a user might engage in online—so long as the associated service has an API and includes date metadata.
 
 I'd love to see tools like this come into existence, helping folks get a handle on owning their data. Plus it would be amazing to look at those timelines. Think of how many things you do online everyday; what would you learn by being able to see and scroll through it, even programmatically analyze it all in one place? (Note that I'm not necessarily suggesting such timelines would be made public.)
+
+---
 
 ## Other details
 
@@ -392,7 +394,7 @@ In the process of refining this idea and writing this article, I stumbled upon w
     <link rel="shortlink" href="http://cbea.ms/18947431"/>
     <link rel="shortlink" href="http://chris.beams.io/18947431"/>
 
-This can be thought of as the inverse of... 
+This can be thought of as the inverse of...  tk
 
 ### On the use of epoch minutes vs. seconds
 I chose minute vs second resolution in my timestamps for two reasons. First for concision (8 characters vs. 10). Second because it's hard to imagine doing anything that would require more than to-the-minute precision. Rapid-fire tweet-style posts would be one exception, but in my personal use of Twitter, these exceptions have been rare enough as to be negligible.
