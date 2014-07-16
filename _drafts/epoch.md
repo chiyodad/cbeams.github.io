@@ -13,10 +13,10 @@ Here are a couple facts:
 
 The second event occurred 18,947,431 tk minutes after the first. For reasons detailed below, that's why you can also get to this post via [cbea.ms/{{ page.timestamp }}]({{ site.shorturl }}/{{ page.timestamp }}). Go ahead, click it—you'll end up back here.
 
-Back? Good. I'll explain why I'm counting the millions(!) of minutes since my birth—and why you might want to too. But let me share how I got there in the first place.
+Back? Good. I'll explain why I'm counting the millions of minutes since my birth—and why you might want to too. But let me share how I got there in the first place.
 
 ## The simplest possible (indie) shortlink
-It started with a simple goal. I wanted to assign an ID to each page on this site. Mainly so I could share short, Twitter-friendly URLs to stuff I write. You know, like this:
+It started with a simple goal. I wanted to assign an ID to each page on this site. Mainly so I could share short, Twitter-friendly URLs to things I write. You know, like this:
 
     $ curl -I http://cbea.ms/1234
     HTTP/1.1 301 Moved Permanently
@@ -26,26 +26,15 @@ Of course URL shortening is nothing new. There are plenty of services out there 
 
 But I don't want to use them anymore.
 
-I don't want to use URL shortening services for the same reasons I serve this site and my mail from a Mac Mini in my living room. Like  [many](indieweb) [others](tk), I want to [own my data](tk). Like [TimBL](tk), I want to [re-decentralize the web](http://arstechnica.com/tech-policy/2014/02/tim-berners-lee-we-need-to-re-decentralize-the-web/).
+I don't want to use URL shortening services for the same reasons I serve this site and my mail from a Mac Mini in my living room. Like  [many others](http://indiewebcamp.com/), I want to [own my data](http://aralbalkan.com/notes/on-owning-your-own-data/). Like [TimBL](https://en.wikipedia.org/wiki/Tim_Berners-Lee), I want to [re-decentralize the web](http://arstechnica.com/tech-policy/2014/02/tim-berners-lee-we-need-to-re-decentralize-the-web/).
 
-tk
+URL shortening may not be the most important service in need of decentralization, but that's part of what makes it interesting to tackle. What does it take to reimplement on a personal scale one of the most basic web services imaginable?
 
-<!-- tk
-The last decade showed us how convenient free cloud services can be. And we've also seen them unilaterally [put out of commission](reader, wave, posterous), aggressively [monetize our data](tk) and get used (with or without their consent) by governments to [spy on us](tk) at massive scale.
-
-The only [terms and conditions](http://www.imdb.com/title/tt2084953/) I want to agree to are my own. While URL-shortening services aren't the the first or biggest concern, owning one's data and keeping things decentralized means getting rid of them too.
-
-In fact, it's because of their simplicity that URL-shortening services provide an excellent object lesson in the challenges of providing decentralized alternatives to cloud services. URL shortening and redirection is one of the most basic services imaginable, but try to do it on your own and you may soon find yourself writing a 5,000 word article about the technological adventure that is sure to ensue.
-
-It goes to show that as technologists committed to digital independence, our biggest challenge is how to make it easy, fun, even cool for everyday users to take this path with us. We're a long way today from an average user running her own web or mail server—but while we can all agree that getting this to happen is a hard problem, let's also acknowledge that most of us haven't even been trying to solve it.
-
-There are [good arguments](tk) that the way to solve these problems is through building design-led organizations that focus first on world-class user experiences—and only in that context do they develop the free and decentralized software that can deliver them. I agree completely. But in the meantime, there's also utility in starting small, weaning ourselves off centralized services one by one, and sharing how we did it as we go.
-
-So today, I present my attempt to build the simplest possible independent URL shortener; next, we take Manhattan.
--->
 
 ## Teaching Jekyll to redirect
-This site is statically generated using [Jekyll](http://jekyllrb.com). That means it doesn't have the benefit (or burden) of a database that can keep track of IDs for each page. Pages like [this one](tk) are just text files with a bit of metadata at the top. It's pretty simple. Here's what one looks like:
+The first thing we'll need is the ability to redirect from the shortened URL to the longer, destination URL.
+
+This site is statically generated using [Jekyll](http://jekyllrb.com). That means it doesn't have the benefit (or burden) of a database that can keep track of shortlink IDs for each page. Pages like [this one](tk) are just text files with a bit of metadata at the top. It's pretty simple. Here's what one looks like:
 
 `2014-07-11-a-quick-example.md`
 
@@ -58,7 +47,7 @@ This site is statically generated using [Jekyll](http://jekyllrb.com). That mean
     blah blah blah blah blah blah blah  <-- content
     blah blah blah blah blah blah blah.
 
-This means that assigning an ID to each page is easy. Just add a new entry to the metadata at the top of each file. Something like this:
+This structure means that assigning a shortlink ID to each page is as easy as adding new metadata. Something like this:
 
     ---
     title: A Quick Example
@@ -68,7 +57,9 @@ This means that assigning an ID to each page is easy. Just add a new entry to th
     ---
     ... content ...
 
-Of course something needs to handle the new `id` metadata. And that something needs to cause a redirect to the `permalink` URL when a user requests the `id` URL. Here again is a simplified version of what we're trying to do (the cbea.ms domain will be re-introduced later):
+Of course something will need to handle the new `id` metadata. Specifically, it will need to cause an HTTP redirect to the `permalink` URL whenever a user requests the shortlink URL based on the `id`.
+
+Here again is a simplified version of what we're trying to do (the cbea.ms domain will be re-introduced later):
 
     $ curl -I http://chris.beams.io/1234
     HTTP/1.1 301 Moved Permanently
@@ -131,10 +122,11 @@ Now when Jekyll generates the site, it creates meta refresh pages for any `alias
 
 Note the `<link rel="canonical" ... />` element. This is a nice addition by the alias generator plugin. It's a [relatively recent](http://www.mattcutts.com/blog/canonical-link-tag/) standard agreed upon by major search engines to help them distinguish and [avoid indexing duplicate content](https://en.wikipedia.org/wiki/Canonical_link_element).
 
-## Choosing an ID scheme
-So that's how I got redirects worked out tk. Thus far I've been using `1234` as an example page ID. Now it's time to choose an actual scheme to use in practice.
+## Choosing a shortlink scheme
+With a mechanism for issuing redirects in place, it's now time design the structure of the shortlinks themselves. Thus far I've been using `1234` as an example shortlink ID, but how should these values be generated in practice?
 
 ### The criteria
+To design a personal URL shortening scheme, it's important to set aside any assumptions based on knowledge of centralized shortening services. The following criteria are what emerged as important for me as I thought about shortlinks from scratch.
 
 #### 1. Reasonably short URLs
 This sounds redundant given that the task at hand is creating <em>short</em>links. But how short is short enough? How long is too long?
@@ -154,8 +146,12 @@ If I'm writing a quick 140-character post, I don't want to have to think about c
 #### 4. Algorithmically simple to create
 It's fine if it takes a little bit of code to create a shortlink ID, but that code should be as simple as possible. It shouldn't assume a particular language, execution environment, complex libraries or any other elaborate context. Simple, simple, simple.
 
-#### 5. Future-proof
+#### 5. Semantically rich
+Ideally, a shortlink would communicate something about the content to which it refers. This might be a shortened version of a title or a number representing the order in which it was posted. Centralized services tend by default to output shortlink IDs that look like random strings or hash values, communicating little to nothing about the nature of the content. Because we're designing at a personal scale, we should be able to do better than that.
+
+#### 6. Future-proof
 This one is hard to define, but roughly it means I don't want make a short-sighted decision about my shortlink ID scheme now only to regret it later. I'll put a pin in this for now and come back to it by example below.
+
 
 ### The options
 
@@ -309,10 +305,14 @@ We now have a number suitable for use in a shortlink url, e.g.:
 ## Tools
 
 ### etime
-[`etime`](tk) is a shell script I wrote to automate the process of calculating the minutes since a personal epoch.
+[`etime`](tk) is a shell script I wrote to automate the process of calculating the minutes since a personal epoch. It's very basic at the moment. I use it to populate the `timestamp:` element of new posts.
 
-### post
-[`post`](tk) is a script I wrote that uses `etime` to create a new text file in my Jekyll `_drafts` folder complete with metadata. It uses `etime` to populate the timestamp information.
+### vim-jekyll
+The [vim-jekyll](https://github.com/parkr/vim-jekyll) plugin automates the process of creating new Jekyll posts within Vim, complete with metadata, correct file name, etc. It's quite handy.
+
+I've created a [fork of vim-jekyll](https://github.com/cbeams/vim-jekyll), customzide to use `etime` to populate the `timestamp:` metadata in new posts. I haven't used this a lot in practice yet; I'm sure it'll get further refined.
+
+As an aside to anyone who wishes to try using the vim-jekyll plugin, I recommend using the [Vundle](https://github.com/gmarik/Vundle.vim) plugin manager.
 
 ## Limitations
 
@@ -389,12 +389,16 @@ There are several reasons for doing this:
 3. The `alias:` field allows for multiple values expressed as an array; the `timestamp:` field does not. This means it's easy to `grep` for pages with `timestamp:` fields, to `cut` and `sort` them, etc.
 
 ### Use of &lt;link rel="shortlink"&gt;
-In the process of refining this idea and writing this article, I stumbled upon what I am now calling _The great rev="canonical" debate of 2009_. I'll spare the details here, but in short... `<link rel="shortlink">`. View source on this page and you'll see near the top the following two entries:
+In the process of refining this idea and writing this article, I stumbled upon what I am now calling "The great _rev='canonical'_ debate of 2009".  This was a discussion about the best way to express the relationship between a "canonical" URL and the "shortlink" URLs that refer to it.
+
+The debate began with the [idea](http://revcanonical.appspot.com/) of using `<link rev="canonical"/>` (note the use of `rev`, vs. `rel`), and—so far as I can tell—ended with [a specification](https://code.google.com/p/shortlink/) describing the use of `<link rel="shortlink">`. I've chosen to use the latter on this site.
+
+View source on this page and you'll see near the top the following two entries:
 
     <link rel="shortlink" href="http://cbea.ms/18947431"/>
     <link rel="shortlink" href="http://chris.beams.io/18947431"/>
 
-This can be thought of as the inverse of...  tk
+It is not clear to me how widely `rel="shortlink"` is used elsewhere. I'd be interested to hear from others if they are doing so, and what if any benefit it gets them.
 
 ### On the use of epoch minutes vs. seconds
 I chose minute vs second resolution in my timestamps for two reasons. First for concision (8 characters vs. 10). Second because it's hard to imagine doing anything that would require more than to-the-minute precision. Rapid-fire tweet-style posts would be one exception, but in my personal use of Twitter, these exceptions have been rare enough as to be negligible.
@@ -417,4 +421,6 @@ Equipped with this information, a user agent could "decode" a personal epoch tim
 
 ## Footnotes
 
-<a href="#ref-redirects" name="fn-redirects">1</a>: ... tk
+<small>
+<a href="#ref-redirects" name="fn-redirects">1</a>: There may be a way to instruct WEBrick to issue HTTP redirects, but after plenty of searching, I couldn't find it. One could also ditch WEBrick and serve Jekyll-generated content with Apache and use mod_rewrite to handle redirects, but I wanted to keep it as simple as possible.
+</small>
