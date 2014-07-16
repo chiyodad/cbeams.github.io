@@ -15,7 +15,9 @@ The second event occurred 18,947,431 tk minutes after the first. For reasons det
 
 Back? Good. I'll explain why I'm counting the millions of minutes since my birth—and why you might want to too. But let me share how I got there in the first place.
 
-## The simplest possible (indie) shortlink
+
+The simplest possible (indie) shortlink
+---------------------------------------
 It started with a simple goal. I wanted to assign an ID to each page on this site. Mainly so I could share short, Twitter-friendly URLs to things I write. You know, like this:
 
     $ curl -I http://cbea.ms/1234
@@ -31,7 +33,8 @@ I don't want to use URL shortening services for the same reasons I serve this si
 URL shortening may not be the most important service in need of decentralization, but that's part of what makes it interesting to tackle. What does it take to reimplement on a personal scale one of the most basic web services imaginable?
 
 
-## Teaching Jekyll to redirect
+Teaching Jekyll to redirect
+---------------------------
 The first thing we'll need is the ability to redirect from the shortened URL to the longer, destination URL.
 
 This site is statically generated using [Jekyll](http://jekyllrb.com). That means it doesn't have the benefit (or burden) of a database that can keep track of shortlink IDs for each page. Pages like [this one](tk) are just text files with a bit of metadata at the top. It's pretty simple. Here's what one looks like:
@@ -91,6 +94,7 @@ and is ultimately still redirected to the original url.
 
 The important thing is that this approach doesn't compromise the desired URL scheme. This means the site could later be moved to a platform that supports HTTP redirects and nothing else would need to change.
 
+
 ### Automating redirect page creation
 The meta refresh approach works, but the creation of these pages needs to be automated. Fortunately the Jekyll [alias generator](https://githubplugin that can be repurposed for this use: .com/tsmango/jekyll_alias_generator) plugin can help.
 
@@ -122,7 +126,9 @@ Now when Jekyll generates the site, it creates meta refresh pages for any `alias
 
 Note the `<link rel="canonical" ... />` element. This is a nice addition by the alias generator plugin. It's a [relatively recent](http://www.mattcutts.com/blog/canonical-link-tag/) standard agreed upon by major search engines to help them distinguish and [avoid indexing duplicate content](https://en.wikipedia.org/wiki/Canonical_link_element).
 
-## Choosing a shortlink scheme
+
+Choosing a shortlink scheme
+---------------------------
 With a mechanism for issuing redirects in place, it's now time design the structure of the shortlinks themselves. Thus far I've been using `1234` as an example shortlink ID, but how should these values be generated in practice?
 
 ### The criteria
@@ -154,7 +160,6 @@ This one is hard to define, but roughly it means I don't want make a short-sight
 
 
 ### The options
-
 Here are the ID scheme options that I thought through. I'm sure it's an incomplete list.
 
 #### 1. Simple counter
@@ -232,7 +237,9 @@ Could this be the best shortlink option yet?
 
 Returning to the criteria above, this approach seems to meet them all. It is **reasonably short**, does **not require a database**, can be generated automatically with **no thinking required**, is **simple to generate** using standard unix tools or libraries available in every modern language, and is not only **future-proof**, but **past-proof**, in the sense that it allows for backdating entries without risk of ID collision or reindexing.
 
-## Epoch win
+
+Epoch win
+------------
 When I thought of using epoch seconds for shortlinks, I was surprised I hadn't seen it done before. Perhaps it has been and I just didn't find it.  As I thought about it further, though, I began thinking beyond shortlinks and began thinking about personal timelines.
 
 If the shortlink for a post is represented as its date of publication in epoch seconds (or minutes), it is not only a shortlink, but a timestamp. In the context of a personal website such as this one, that timestamp communicates what I was doing at that moment. It represents a point on the timeline of my life.
@@ -300,12 +307,14 @@ We now have a number suitable for use in a shortlink url, e.g.:
 
     http://chris.beams.io/18953153
 
----
+----
 
-## Tools
+Tools
+-----
 
 ### etime
 [`etime`](tk) is a shell script I wrote to automate the process of calculating the minutes since a personal epoch. It's very basic at the moment. I use it to populate the `timestamp:` element of new posts.
+
 
 ### vim-jekyll
 The [vim-jekyll](https://github.com/parkr/vim-jekyll) plugin automates the process of creating new Jekyll posts within Vim, complete with metadata, correct file name, etc. It's quite handy.
@@ -314,10 +323,13 @@ I've created a [fork of vim-jekyll](https://github.com/cbeams/vim-jekyll), custo
 
 As an aside to anyone who wishes to try using the vim-jekyll plugin, I recommend using the [Vundle](https://github.com/gmarik/Vundle.vim) plugin manager.
 
-## Limitations
+
+Limitations
+-----------
 
 ### Scope
 The notion of a personal epoch is only useful when reasoning about events in that particular person or entity's life. Things get confusing fast if times or timelines are being compared across two or more persons. So to be clear, I am not suggesting that people declare personal temporal sovereignty, expecting others to actively deal with their relative dates. The utility of these relative timestamps is limited, so far as I can tell, to personal websites / journals / chronicles / timelines, etc.
+
 
 ### External shortlinks
 This shortlink scheme, as currently implemented using Jekyll is only useful for sharing links to this site. It is not useful as a general-purpose external link shortener. For example, if I wanted to share a link to a recent XKCD strip such as:
@@ -326,11 +338,14 @@ This shortlink scheme, as currently implemented using Jekyll is only useful for 
 
 The current implementation provides no way of offering a `cbea.ms` shortlink URL that does not first direct the user to a page on `chris.beams.io`. That page could meta refresh to the desired URL, but this indirection would be silly (and made all the more so by the fact that the xkcd URL is already shorter than anything I could produce with this scheme).
 
-## Future directions
+
+Future directions
+-----------------
 I don't intend to do anything with this idea other than use it for my personal shortlink scheme. However, one can imagine layering applications atop the idea of epoch-timestamped URLs.
 
 ### Timeline visualization
 For example, if the pages pointed to by epoch-timestamped URLs included additional structured [event](http://schema.org/Event) [metadata](http://microformats.org/wiki/h-event), it would be straightforward in concept for an application like [Timeline3D](http://www.beedocs.com/timeline3D) to index and visualize them.
+
 
 ### Indexing external events
 It's also interesting to think about the development of tools that import or index personal events from around the web. For example, a tool that imports all of a user's Tweets could use epoch-timestamped URLs based on the tweet's [`created_at` date ](https://dev.twitter.com/docs/api/1.1/get/statuses/show/%3Aid). The same goes for Facebook posts, Amazon product reviews, questions asked and answered on Q&A sites, issues and comments on bug trackers, comments on blogs, or any other activity a user might engage in online—so long as the associated service has an API and includes date metadata.
@@ -339,7 +354,8 @@ I'd love to see tools like this come into existence, helping folks get a handle 
 
 ---
 
-## Other details
+Other details
+-------------
 
 ### Managing redirects from a custom shortlink domain
 For greater concision I use a custom shortlink domain at [cbea.ms](http://cbea.ms). I manage this site's DNS using CloudFlare, and have a [Page Rule](http://blog.cloudflare.com/introducing-pagerules-url-forwarding) set up there to forward all requests to the full [chris.beams.io](http://chris.beams.io) domain.
@@ -362,6 +378,7 @@ the complete redirect flow is:
     $ curl -I http://chris.beams.io/posts/whatever
     HTTP/1.1 200 OK
     ... browser displays actual content ...
+
 
 ### Dedicated Jekyll timestamp metadata
 In the first section of this article I described using the Jekyll alias generator plugin to express timestamp shortlink urls, e.g.:
@@ -388,6 +405,7 @@ There are several reasons for doing this:
 2. The custom `timestamp:` field does not require values to have a leading `/`, as does the `alias:` field.
 3. The `alias:` field allows for multiple values expressed as an array; the `timestamp:` field does not. This means it's easy to `grep` for pages with `timestamp:` fields, to `cut` and `sort` them, etc.
 
+
 ### Use of &lt;link rel="shortlink"&gt;
 In the process of refining this idea and writing this article, I stumbled upon what I am now calling "The great _rev='canonical'_ debate of 2009".  This was a discussion about the best way to express the relationship between a "canonical" URL and the "shortlink" URLs that refer to it.
 
@@ -400,8 +418,10 @@ View source on this page and you'll see near the top the following two entries:
 
 It is not clear to me how widely `rel="shortlink"` is used elsewhere. I'd be interested to hear from others if they are doing so, and what if any benefit it gets them.
 
+
 ### On the use of epoch minutes vs. seconds
 I chose minute vs second resolution in my timestamps for two reasons. First for concision (8 characters vs. 10). Second because it's hard to imagine doing anything that would require more than to-the-minute precision. Rapid-fire tweet-style posts would be one exception, but in my personal use of Twitter, these exceptions have been rare enough as to be negligible.
+
 
 ### Epoch metadata
 If epoch timestamps were ever to become widely used, it would be a good idea to agree on a structured way to advertise:
@@ -417,10 +437,10 @@ Here's how it might look modeled with `<meta>` elements:
 
 Equipped with this information, a user agent could "decode" a personal epoch timestamp in order to render it as a human readable date.
 
----
+----
 
-## Footnotes
-
+Footnotes
+---------
 <small>
 <a href="#ref-redirects" name="fn-redirects">1</a>: There may be a way to instruct WEBrick to issue HTTP redirects, but after plenty of searching, I couldn't find it. One could also ditch WEBrick and serve Jekyll-generated content with Apache and use mod_rewrite to handle redirects, but I wanted to keep it as simple as possible.
 </small>
