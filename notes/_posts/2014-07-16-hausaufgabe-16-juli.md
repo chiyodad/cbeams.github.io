@@ -6,8 +6,8 @@ timestamp: 18954790
 tags: german
 featured: false
 ---
-Gestern habe ich in das Geschäft "Billa" gegangen, und habe ich Lebensmittel verkaufen. Dieses Geschäft ist in der nähe von meine Wohnung, fünf minuten  oder weniger zu fuß.
+Gestern bin ich zu Billa gegangen und habe Lebensmittel gekauft. Dieses Geschäft ist in der Nähe von meiner Wohnung, fünf Minuten oder weniger zu Fuß.
 
-Ich habe Avocados, Eier, Salat, Sauerkraut, Linsen, Thunfisch und Speck verkaufen.
+Ich habe Avocados, Eier, Salat, Sauerkraut, Linsen, Thunfisch und Speck gekauft.
 
-Normalerweise esse ich zwei oder dreimal pro Tag Mahlen mit dieser Zutaten. Manchmals heiß, manchmals kalt, aber immer mit guter Olivenöl und Salz.
+Normalerweise esse ich zwei oder dreimal pro Tag Mahlzeiten mit diesen Zutaten. Manchmal heiß, manchmal kalt, aber immer mit gutem Olivenöl und Salz.
