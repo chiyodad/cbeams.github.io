@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Epoch Shortlinks
-timestamp: 18947431
+timestamp: 18954885
 ---
 
 _I spent a truly stupid amount of time thinking about how to do shortlinks for this site. This is what I finally decided on. Hopefully it saves somebody else the trouble._
@@ -9,9 +9,9 @@ _I spent a truly stupid amount of time thinking about how to do shortlinks for t
 Here are a couple facts:
 
  1. I was born in Great Falls, Montana on July 2nd, 1978 at 7:02 AM.
- 2. I began tk writing this post in Vienna, Austria on July 11th, 2014 at 1:32 PM.
+ 2. I published this post in Vienna, Austria on July 16th, 2014 at 5:47 PM.
 
-The second event occurred 18,947,431 tk minutes after the first. For reasons detailed below, that's why you can also get to this post via [cbea.ms/{{ page.timestamp }}]({{ site.shorturl }}/{{ page.timestamp }}). Go ahead, click it—you'll end up back here.
+The second event occurred 18,954,885 minutes after the first. For reasons detailed below, that's why you can also get to this post via [cbea.ms/{{ page.timestamp }}]({{ site.shorturl }}/{{ page.timestamp }}). Go ahead, click it—you'll end up back here.
 
 Back? Good. I'll explain why I'm counting the millions of minutes since my birth—and why you might want to too. But let me share how I got there in the first place.
 
@@ -35,9 +35,9 @@ URL shortening may not be the most important service in need of decentralization
 
 Teaching Jekyll to redirect
 ---------------------------
-The first thing we'll need is the ability to redirect from the shortened URL to the longer, destination URL.
+The first thing we'll need is the ability to redirect from the shortened URL to the longer destination URL.
 
-This site is statically generated using [Jekyll](http://jekyllrb.com). That means it doesn't have the benefit (or burden) of a database that can keep track of shortlink IDs for each page. Pages like [this one](tk) are just text files with a bit of metadata at the top. It's pretty simple. Here's what one looks like:
+This site is statically generated using [Jekyll](http://jekyllrb.com). That means it doesn't have the benefit (or burden) of a database that can keep track of shortlink IDs for each page. Pages like [this one](https://github.com/cbeams/chris.beams.io/blob/master/_posts/2014-07-16-epoch-shortlinks.md) are just text files with a bit of metadata at the top. It's pretty simple. Here's what one looks like:
 
 `2014-07-11-a-quick-example.md`
 
@@ -50,7 +50,7 @@ This site is statically generated using [Jekyll](http://jekyllrb.com). That mean
     blah blah blah blah blah blah blah  <-- content
     blah blah blah blah blah blah blah.
 
-This structure means that assigning a shortlink ID to each page is as easy as adding new metadata. Something like this:
+This structure means that assigning a shortlink ID to a page is as easy as adding new metadata. Something like this:
 
     ---
     title: A Quick Example
@@ -88,15 +88,15 @@ We can still make the desired redirection happen, but we have to take a differen
 
     http://chris.beams.io/1234
 
-and is ultimately still redirected to the original url.
+and is ultimately still redirected to the destination url.
 
     http://chris.beams.io/posts/some-longer-url
 
-The important thing is that this approach doesn't compromise the desired URL scheme. This means the site could later be moved to a platform that supports HTTP redirects and nothing else would need to change.
+The important thing is that this workaround is transparent; it doesn't compromise the desired URL scheme. This means the site could later be moved to a platform that supports HTTP redirects and nothing else would need to change.
 
 
-### Automating redirect page creation
-The meta refresh approach works, but the creation of these pages needs to be automated. Fortunately the Jekyll [alias generator](https://githubplugin that can be repurposed for this use: .com/tsmango/jekyll_alias_generator) plugin can help.
+### Automating meta refresh page creation
+The meta refresh approach works, but the creation of these pages needs to be automated. Fortunately the Jekyll [alias generator](https://github.com/tsmango/jekyll_alias_generator) plugin can help.
 
 Using it means switching from our custom `id:` property to the plugin's generic `alias:` property. It looks like this:
 
@@ -104,7 +104,7 @@ Using it means switching from our custom `id:` property to the plugin's generic 
     title: A Quick Example
     date: 2014-07-11 20:41:00 +0200
     permalink: /posts/a-quick-example
-    alias: /1234                        <-- goodbye 'id', hello 'alias'
+    alias: /1234                        <-- goodbye "id", hello "alias"
     ---
     ... content ...
 
@@ -129,17 +129,17 @@ Note the `<link rel="canonical" ... />` element. This is a nice addition by the 
 
 Choosing a shortlink scheme
 ---------------------------
-With a mechanism for issuing redirects in place, it's now time design the structure of the shortlinks themselves. Thus far I've been using `1234` as an example shortlink ID, but how should these values be generated in practice?
+With a mechanism for issuing redirects in place, it's time to design the structure of the shortlinks themselves. Thus far I've been using `1234` as an example shortlink ID, but how should these values be generated in practice?
 
 ### The criteria
-To design a personal URL shortening scheme, it's important to set aside any assumptions based on knowledge of centralized shortening services. The following criteria are what emerged as important for me as I thought about shortlinks from scratch.
+To design a URL shortening scheme on a personal scale, it's important to set aside any assumptions based on knowledge of centralized shortening services. The following criteria are what emerged as important for me as I thought about shortlinks from scratch.
 
-#### 1. Reasonably short URLs
+#### 1. Reasonably short
 This sounds redundant given that the task at hand is creating <em>short</em>links. But how short is short enough? How long is too long?
 
-Currently Twitter truncates any URL longer than 23 characters with an ellipsis. When this happens, readers can no longer memorize, copy and paste, or create a screenshot of the URL. They are forced to click on it and go through Twitter's [t.co](http://t.co) shortening service, which defeats the purpose of having an independent one. Given that my personal shortlink domain (cbea.ms) is itself 7 characters long (8 with a trailing slash), I have 15 characters of ID runway before Twitter truncation.
+Currently Twitter truncates any URL longer than 23 characters by replacing the overflow with an ellipsis. When this happens, readers can no longer memorize, copy and paste, or create a screenshot of the URL. They are forced to click on it and go through Twitter's [t.co](http://t.co) shortening service, which defeats the purpose of having an independent one. Given that my personal shortlink domain (cbea.ms) is itself 7 characters long (8 with a trailing slash), I have 15 characters of ID runway before Twitter truncation.
 
-An even better guide is [Miller's Law](https://en.wikipedia.org/wiki/The_Magical_Number_Seven%2C_Plus_or_Minus_Two). Roughly stated, it says that the maximum number of objects a human can hold in working memory is 7 ± 2. I've found this to hold true in my own experience, so it seems like a good rule of thumb.
+Another guide to ID length is [Miller's Law](https://en.wikipedia.org/wiki/The_Magical_Number_Seven%2C_Plus_or_Minus_Two). Roughly stated, it says that the maximum number of objects a human can hold in working memory is 7 ± 2. I've found this to hold true in my own experience with phone numbers and the like. It seems reasonable as rule of thumb.
 
 Conclusion: while the ideal shortlink ID would consist of as few characters as possible, it shouldn't be much longer than 7, and certainly not longer than 15.
 
@@ -156,14 +156,14 @@ It's fine if it takes a little bit of code to create a shortlink ID, but that co
 Ideally, a shortlink would communicate something about the content to which it refers. This might be a shortened version of a title or a number representing the order in which it was posted. Centralized services tend by default to output shortlink IDs that look like random strings or hash values, communicating little to nothing about the nature of the content. Because we're designing at a personal scale, we should be able to do better than that.
 
 #### 6. Future-proof
-This one is hard to define, but roughly it means I don't want make a short-sighted decision about my shortlink ID scheme now only to regret it later. I'll put a pin in this for now and come back to it by example below.
+Taking a long and optimistic view, I might be caring for this site and its content for many years to come. That may mean moving to better (or better maintained) platforms over time, and that means that simplicity and portability are key. "Future-proof" is by nature hard to define, but roughly it means I don't want make an expedient decision about my shortlink scheme now only to regret it later.
 
 
 ### The options
-Here are the ID scheme options that I thought through. I'm sure it's an incomplete list.
+Here are the shortlink ID scheme options that I thought through. I'm sure it's an incomplete list.
 
 #### 1. Simple counter
-The seemingly simplest approach for an ID scheme would be to start from 1 and increment the ID for each new page we create. This approach is attractive for a few reasons, but there are serious enough issues as to disqualify it for my purposes.
+The seemingly simplest approach for an ID scheme would be to start from 1 and increment the ID for each new page created. This approach is attractive for a few reasons, but there are serious enough issues as to disqualify it for my purposes.
 
  - **It basically requires a database**. To implement this, a script would have to be written to search all files for `alias:` entries, sort to find the highest ID value among them, then return that value incremented by one. If you think about it, this approach is really just creating a poor man's database from textfiles on a filesystem. Among other problems, this means you have to have access to all those files along with the correct tools in order to create an ID. That might be a constraint too far at some point in the future.
 
@@ -181,28 +181,28 @@ It's also relatively complex, requiring less-than-trivial code to implement and 
 In short, while I think there's a lot to like in Tantek's approach, it's basically overengineered for my purposes. It might be perfect for others though. I recommend giving his docs a read in any case.
 
 #### 3. Random numbers, random strings, hash values, etc
-It's probably not fair to group all of these together. But in short, I mean to capture here more or less what most URL-shortening services do today. They typically create a short string of letters and/or numbers, that if not random, appear to be.
+It's probably not fair to group all of these together. But in short, I mean to capture here more or less what most URL shortening services do today. They typically create a short string of letters and/or numbers, that if not random, appear to be.
 
 For example, if you feed [http://example.com](http://example.com) into TinyURL, the shortlink ID it returns is [`yvdle`](http://tinyurl.com/yvdle). I do not know how this value is determined, and as far as I know they don't advertise it. I'm sure most people don't care so long as it works.
 
 These opaque shortlink IDs may be a reasonable design decision for a large-scale multiuser URL shortening service. However, when designing a personal shortening scheme, I'd prefer values that the author and reader can reason about—ideally something that communicates order, chronology, or information about the content itelf.
 
 #### 4. Intentionally short human-readable names
-For a url like the one on this page
+For a URL like the one on this page,
 
     http://chris.beams.io/posts/epoch-shortlinks
 
-why not simply create a shorter, single-word top-level alias?
+why not simply create a shorter, single-word, top-level alias?
 
     http://chris.beams.io/epoch
 
 There are a several problems that disqualify this approach as a universal solution.
 
- - **It requires thinking.** Per criteria #3, if one is issuing posts at Twitter-level size and frequency, it becomes undesirable to have to 'design' a shortcut link for each 'tweet'.
+ - **It requires thinking.** Per criteria #3, if one is issuing posts at Twitter-level size and frequency, it becomes undesirable to have to "design" a shortcut link for each "tweet".
 
  - **It requires duplicate checking**. For each new top-level shortlink created, one must check to ensure the name hasn't already been used. This is not a problem in the beginning. It becomes more burdensome the more posts one creates. This check could reasonably be automated, but at the cost of yet another moving part.
 
- - **It pollutes the top-level namespace**. Example: I create a shortlink named '/notes' today, but wish to create a new section of the site called '/notes' tomorrow. I cannot do the latter without breaking the former. A large number of top-level, dictionary-word shortlinks serves to pollute and inadvertently constrain that namespace over time.
+ - **It pollutes the top-level namespace**. Example: I create a shortlink named "/notes" today, but wish to create a new section of the site called "/notes" tomorrow. I cannot do the latter without breaking the former. A large number of top-level, dictionary-word shortlinks serves to pollute and inadvertently constrain that namespace over time.
 
 That having been said, I still like this option, and predict I'll use it on occassion. It is not mutually exclusive with other, more automatable schemes. For example, all pages might be assigned a numeric shortlink ID, but certain pages might be deemed important enough to be given these one-off aliases to increase impact, memorizability, etc.
 
@@ -213,27 +213,27 @@ For example, a post published on July 15th, 2014 at 8:50 AM might be assigned th
 
 There are a few problems here:
 
- - **It's not short**. At to-the-minute resolution, this string is 12 characters long. With seconds, 14. This is sufficient to avoid Twitter truncation given a short enough domain name, but these values are undesirably long in any case. Clever solutions such as Tantek's [NewBase60](http://ttk.me/w/NewBase60) number system could be employed to shorten the year and date, but this approach requires non-trivial custom code and does not deal with time resolutions more fine-grained than the day.
+ - **It's not short**. At to-the-minute resolution, this string is 12 characters long. With seconds, 14. This is sufficient to avoid Twitter truncation given a short enough domain name, but these values are undesirably long in any case. Clever solutions such as Tantek's [NewBase60](http://ttk.me/w/NewBase60) number system could be employed to shorten the year and date, but this approach requires non-trivial custom code and does not deal with time resolutions more fine-grained than one day.
 
- - **It's lossy**. This solution loses time zone information. This may sound like negligible at first, but any representation of time that includes the hour is meaningless without a time zone alongside.
+ - **It's lossy**. This approach loses time zone information. This may sound negligible at first, but any representation of time that includes the hour is meaningless without a time zone alongside.
 
 While the specific approach above isn't terribly attractive, a numeric representation of the date might make sense yet. Why not use [Unix time](https://en.wikipedia.org/wiki/Unix_time)?
 
 Unix time is also called _epoch seconds_, because it represents the number of seconds elapsed since the so-called _Unix epoch_ of January 1st, 1970 00:00:00 UTC. It's an elegant and widely understood measurement of time that can be translated into any date format without any loss of information such as time zone.
 
-For example, as I write this the current Unix time is `1405421716`:
+For example, as I write this the current Unix time is `1405421716`, as reported by the [`date`](http://www.unix.com/man-page/osx/1/date/) utility:
 
     $ date +%s
     1405421716
 
-At 10 digits, epoch seconds is already shorter than the the date strings considered above. It has the added benefit of being a simple number, easy to generate and manipulate in almost any programmatic context. Divide it by 60 for to-the-minute resolution and we're at 8 digits—within 'short enough' range for a shortlink:
+At 10 digits, epoch seconds is already shorter than the the date strings considered above. It has the added benefit of being a simple number, easy to generate and manipulate in almost any programmatic context. Divide it by 60 for to-the-minute resolution and we're at 8 digits—within "short enough" range for a shortlink:
 
     $ echo 1405421716 / 60 | bc
     23423695
 
 Could this be the best shortlink option yet?
 
-    http://chris.beams.io/23423695
+    http://cbea.ms/23423695
 
 Returning to the criteria above, this approach seems to meet them all. It is **reasonably short**, does **not require a database**, can be generated automatically with **no thinking required**, is **simple to generate** using standard unix tools or libraries available in every modern language, and is not only **future-proof**, but **past-proof**, in the sense that it allows for backdating entries without risk of ID collision or reindexing.
 
@@ -252,15 +252,15 @@ For example, as I wrote earlier, I was born on July 2nd, 1978 at 7:02 AM in Grea
     $ TZ=MST7MDT date -j -f "%m-%d-%Y %T" "07-02-1978 07:02:00" +%s
     268232520
 
-    # Divide by 60 for 'epoch minutes'
+    # Divide by 60 for "epoch minutes"
     $ echo 268232520 / 60 | bc
     4470542
 
-This means that if I had a page representing my birth at:
+This means that if I had a page representing my birth at
 
     http://chris.beams.io/events/birth
 
-its shortlink/timestamp URL would be:
+its shortlink/timestamp URL would be
 
     http://chris.beams.io/4470542
 
@@ -272,7 +272,7 @@ Just imagine a person born earlier than 1970 making use of this scheme. If their
 
 As one can see, it begins to get a little absurd—perhaps even ageist—to anchor a personal timeline directly on the Unix epoch.
 
-Instead, what if we treated our birthdate as our zero-moment, as our own _personal epoch_? For the practical purposes of calculation and manipulation, we would need to express that value somewhere as an offset from Unix time, but everywhere else, the events in our lives can be timestamped intuitively as the number of minutes elapsed since zero—since the moment of our birth.
+Instead, what if we treated our birthdate as our zero-moment, as our own _personal epoch_? For the practical purposes of calculation and manipulation, we would need to express that value somewhere as an offset from Unix time, but everywhere else, the events in our lives could be timestamped intuitively as the number of minutes elapsed since zero—since the moment of our birth.
 
 As calculated above, I was born 268,232,520 seconds after the Unix epoch. Let's call this number `$CBEAMS_EPOCH`.
 
@@ -303,9 +303,11 @@ For a timestamp expressed in minutes, divide this value by 60:
     $ echo $CBEAMS_TIMESTAMP
     18953153
 
-We now have a number suitable for use in a shortlink url, e.g.:
+We now have a number suitable for use in a shortlink:
 
     http://chris.beams.io/18953153
+
+Or indeed, for use in the shortlink to this very page: [cbea.ms/{{ page.timestamp }}]({{ site.shorturl }}/{{ page.timestamp }}).
 
 ----
 
@@ -313,13 +315,13 @@ Tools
 -----
 
 ### etime
-[`etime`](tk) is a shell script I wrote to automate the process of calculating the minutes since a personal epoch. It's very basic at the moment. I use it to populate the `timestamp:` element of new posts.
+[`etime`](https://github.com/cbeams/chris.beams.io/blob/master/etime) is a shell script I wrote to automate the process of calculating the minutes since a personal epoch. It's very basic at the moment. I use it to populate the `timestamp:` element of new posts.
 
 
 ### vim-jekyll
 The [vim-jekyll](https://github.com/parkr/vim-jekyll) plugin automates the process of creating new Jekyll posts within Vim, complete with metadata, correct file name, etc. It's quite handy.
 
-I've created a [fork of vim-jekyll](https://github.com/cbeams/vim-jekyll), customzide to use `etime` to populate the `timestamp:` metadata in new posts. I haven't used this a lot in practice yet; I'm sure it'll get further refined.
+I've created a [fork of vim-jekyll](https://github.com/cbeams/vim-jekyll), customized to use `etime` to populate the `timestamp:` metadata in new posts. I haven't used this a lot in practice yet; I'm sure it'll get further refined.
 
 As an aside to anyone who wishes to try using the vim-jekyll plugin, I recommend using the [Vundle](https://github.com/gmarik/Vundle.vim) plugin manager.
 
@@ -332,11 +334,15 @@ The notion of a personal epoch is only useful when reasoning about events in tha
 
 
 ### External shortlinks
-This shortlink scheme, as currently implemented using Jekyll is only useful for sharing links to this site. It is not useful as a general-purpose external link shortener. For example, if I wanted to share a link to a recent XKCD strip such as:
+This shortlink scheme, as currently implemented using Jekyll is only useful for sharing links to this site. It is not useful as a general-purpose external link shortener. For example, if I wanted to share a link to a recent XKCD strip such as
 
     http://xkcd.com/1393
 
-The current implementation provides no way of offering a `cbea.ms` shortlink URL that does not first direct the user to a page on `chris.beams.io`. That page could meta refresh to the desired URL, but this indirection would be silly (and made all the more so by the fact that the xkcd URL is already shorter than anything I could produce with this scheme).
+the current implementation provides no way of offering a `cbea.ms` shortlink URL that does not first direct the user to a page on `chris.beams.io`. That page could meta refresh to the destination URL, but this amount of indirection would be silly (and made all the more so by the fact that the xkcd URL is already shorter than anything I could produce with this scheme).
+
+
+### Metrics and other advanced features
+Centralized services like bit.ly offer metrics, visualizations and dashboards to manage the "performance" of links, etc. The approach described here is obviously extremely limited by comparison. Perhaps if decentralized URL shortening becomes more popular, someone will re-create these advanced features in free software that users can run and improve however they choose.
 
 
 Future directions
@@ -358,7 +364,7 @@ Other details
 -------------
 
 ### Managing redirects from a custom shortlink domain
-For greater concision I use a custom shortlink domain at [cbea.ms](http://cbea.ms). I manage this site's DNS using CloudFlare, and have a [Page Rule](http://blog.cloudflare.com/introducing-pagerules-url-forwarding) set up there to forward all requests to the full [chris.beams.io](http://chris.beams.io) domain.
+For greater concision I use a custom shortlink domain at [cbea.ms](http://cbea.ms). I manage this domain's DNS using [CloudFlare](http://cloudflare.com), and have a [Page Rule](http://blog.cloudflare.com/introducing-pagerules-url-forwarding) set up there to forward all requests to the full [chris.beams.io](http://chris.beams.io) domain.
 
 For example, given the shortlink
 
@@ -381,7 +387,7 @@ the complete redirect flow is:
 
 
 ### Dedicated Jekyll timestamp metadata
-In the first section of this article I described using the Jekyll alias generator plugin to express timestamp shortlink urls, e.g.:
+In the first section of this article I described using the Jekyll alias generator plugin to express shortlink paths, e.g.:
 
     ---
     title: A Quick Example
@@ -407,20 +413,22 @@ There are several reasons for doing this:
 
 
 ### Use of &lt;link rel="shortlink"&gt;
-In the process of refining this idea and writing this article, I stumbled upon what I am now calling "The great _rev='canonical'_ debate of 2009".  This was a discussion about the best way to express the relationship between a "canonical" URL and the "shortlink" URLs that refer to it.
+In the process of refining this idea and writing this article, I stumbled upon what I am now calling _"The great rev='canonical' debate of 2009"_.  This was a discussion about the best way to express the relationship between a "canonical" URL and the "shortlink" URLs that refer to it.
 
 The debate began with the [idea](http://revcanonical.appspot.com/) of using `<link rev="canonical"/>` (note the use of `rev`, vs. `rel`), and—so far as I can tell—ended with [a specification](https://code.google.com/p/shortlink/) describing the use of `<link rel="shortlink">`. I've chosen to use the latter on this site.
 
 View source on this page and you'll see near the top the following two entries:
 
-    <link rel="shortlink" href="http://cbea.ms/18947431"/>
-    <link rel="shortlink" href="http://chris.beams.io/18947431"/>
+    <link rel="shortlink" href="http://cbea.ms/18954885"/>
+    <link rel="shortlink" href="http://chris.beams.io/18954885"/>
 
 It is not clear to me how widely `rel="shortlink"` is used elsewhere. I'd be interested to hear from others if they are doing so, and what if any benefit it gets them.
 
 
 ### On the use of epoch minutes vs. seconds
-I chose minute vs second resolution in my timestamps for two reasons. First for concision (8 characters vs. 10). Second because it's hard to imagine doing anything that would require more than to-the-minute precision. Rapid-fire tweet-style posts would be one exception, but in my personal use of Twitter, these exceptions have been rare enough as to be negligible.
+I chose minute vs. second resolution in my timestamps for two reasons. First for concision (8 characters vs. 10). Second because it's hard to imagine doing anything that would require more than to-the-minute precision. Rapid-fire tweet-style posts would be one exception, but in my personal use of Twitter, these exceptions have been rare enough as to be negligible.
+
+If higher frequency events did at some point become commonplace, seconds could be captured intuitively with a base-60 number following a decimal point, e.g.: `18954885.58, 18954885.59, 18954886.00, ...`
 
 
 ### Epoch metadata
