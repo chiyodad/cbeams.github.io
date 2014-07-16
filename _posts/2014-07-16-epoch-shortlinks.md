@@ -1,7 +1,8 @@
 ---
 layout: post
 title: Epoch Shortlinks
-timestamp: 18954885
+date: Wed Jul 16 19:25:09 2014 +0200
+timestamp: 18954983
 ---
 
 _I spent a truly stupid amount of time thinking about how to do shortlinks for this site. This is what I finally decided on. Hopefully it saves somebody else the trouble._
@@ -9,9 +10,9 @@ _I spent a truly stupid amount of time thinking about how to do shortlinks for t
 Here are a couple facts:
 
  1. I was born in Great Falls, Montana on July 2nd, 1978 at 7:02 AM.
- 2. I published this post in Vienna, Austria on July 16th, 2014 at 5:47 PM.
+ 2. I published this post in Vienna, Austria on July 16th, 2014 at 7:25 PM.
 
-The second event occurred 18,954,885 minutes after the first. For reasons detailed below, that's why you can also get to this post via [cbea.ms/{{ page.timestamp }}]({{ site.shorturl }}/{{ page.timestamp }}). Go ahead, click it—you'll end up back here.
+The second event occurred 18,954,983 minutes after the first. For reasons detailed below, that's why you can also get to this post via [cbea.ms/{{ page.timestamp }}]({{ site.shorturl }}/{{ page.timestamp }}). Go ahead, click it—you'll end up back here.
 
 Back? Good. I'll explain why I'm counting the millions of minutes since my birth—and why you might want to too. But let me share how I got there in the first place.
 
@@ -419,8 +420,8 @@ The debate began with the [idea](http://revcanonical.appspot.com/) of using `<li
 
 View source on this page and you'll see near the top the following two entries:
 
-    <link rel="shortlink" href="http://cbea.ms/18954885"/>
-    <link rel="shortlink" href="http://chris.beams.io/18954885"/>
+    <link rel="shortlink" href="http://cbea.ms/18954983"/>
+    <link rel="shortlink" href="http://chris.beams.io/18954983"/>
 
 It is not clear to me how widely `rel="shortlink"` is used elsewhere. I'd be interested to hear from others if they are doing so, and what if any benefit it gets them.
 
@@ -428,7 +429,7 @@ It is not clear to me how widely `rel="shortlink"` is used elsewhere. I'd be int
 ### On the use of epoch minutes vs. seconds
 I chose minute vs. second resolution in my timestamps for two reasons. First for concision (8 characters vs. 10). Second because it's hard to imagine doing anything that would require more than to-the-minute precision. Rapid-fire tweet-style posts would be one exception, but in my personal use of Twitter, these exceptions have been rare enough as to be negligible.
 
-If higher frequency events did at some point become commonplace, seconds could be captured intuitively with a base-60 number following a decimal point, e.g.: `18954885.58, 18954885.59, 18954886.00, ...`
+If higher frequency events did at some point become commonplace, seconds could be captured intuitively with a base-60 number following a decimal point, e.g.: `18954983.58, 18954983.59, 18954984.00, ...`
 
 
 ### Epoch metadata
