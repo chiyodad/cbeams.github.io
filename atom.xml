@@ -4,7 +4,7 @@ timestamp: 18905507
 ---
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
- <title>cbeams</title>
+ <title>Chris Beams</title>
  <link href="{{ site.feedurl }}" rel="self"/>
  <link href="{{ site.url }}"/>
  <id>{{ site.url }}</id>
@@ -16,7 +16,7 @@ timestamp: 18905507
  {% for post in site.posts %}
    {% unless post.featured == false %}
  <entry>
-   <title>{{ post.title }} ({{ post.dir | remove_first: '/' }})</title>
+   <title>{{ post.title }}</title>
    <link href="{{ site.url }}{{ post.url }}"/>
    <id>{{ site.url }}{{ post.id }}</id>
    {% for category in post.categories %}

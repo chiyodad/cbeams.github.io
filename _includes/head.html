@@ -8,17 +8,7 @@
   <link rel="shortlink" href="{{ site.shorturl }}/{{ page.timestamp }}"/>
   <link rel="shortlink" href="{{ site.url }}/{{ page.timestamp }}"/>
 
-  <link rel="alternate" type="application/atom+xml" title="(all posts)" href="{{ site.feedurl }}/atom.xml">
-  <link rel="alternate" type="application/atom+xml" title="/notes" href="{{ site.feedurl }}/notes/atom.xml">
-  <link rel="alternate" type="application/atom+xml" title="/articles" href="{{ site.feedurl }}/articles/atom.xml">
-  <link rel="alternate" type="application/atom+xml" title="/quotes" href="{{ site.feedurl }}/quotes/atom.xml">
-  {% strip %}
-  {% for project in site.data.projects %}
-    {% if project.active and project.log %}
-  <link rel="alternate" type="application/atom+xml" title="{{ project.path }}" href="{{ site.feedurl }}{{ project.path }}/atom.xml">
-    {% endif %}
-  {% endfor %}
-  {% endstrip %}
+  <link rel="alternate" type="application/atom+xml" title="Chris Beams" href="{{ site.feedurl }}/atom.xml">
 
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/darcula.css">
