@@ -69,5 +69,5 @@ else
     let now=$(date +%s)
 fi
 let etime=($now-$epoch)/60
-echo $etime
+echo -n $etime
 exit 0
