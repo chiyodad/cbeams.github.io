@@ -3,6 +3,8 @@ layout: post
 title: Hausaufgabe 16. Juli
 date: Wed Jul 16 16:12:21 +0200 2014
 timestamp: 18954790
+tags: german
+featured: false
 ---
 Gestern habe ich in das Geschäft "Billa" gegangen, und habe ich Lebensmittel verkaufen. Dieses Geschäft ist in der nähe von meine Wohnung, fünf minuten  oder weniger zu fuß.
 
