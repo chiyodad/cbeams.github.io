@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "What I wrote on battleforthenet.com"
+title: "What I Wrote to the FCC on Net Neutrality"
 date: "Wed Jul 16 21:06:09 +0200 2014"
 timestamp: 18955084
 ---
