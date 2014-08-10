@@ -3,6 +3,7 @@ layout: post
 title: The Social Laboratory
 date: Thu Jul 31 13:46:57 +0200 2014
 timestamp: 18976244
+alias: /posts/the-social-laboratory
 ---
 
 _In [this piece][1] for the Financial Times, Shane Harris describes how the US's aborted Total Information Awareness program inspired modern-day Singapore's surveillance state._
