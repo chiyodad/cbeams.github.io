@@ -41,7 +41,7 @@ The talk's abstract leads with privacy, surveillance and our rights in the digit
 
 At 90 minutes, talks at SpringOne are longer than most conferences. I'm glad of it; these topics are nuanced and deserve to be discussed in depth. And in case you're attending and worried that without code this talk will be too high-level and hand-wavy, don't. There'll be plenty of geekery still. Because so much of what's to be discussed is new, it's simply a requirement to go into a certain amount of technical depth before being able to explore higher-order implications.
 
-Many readers will have recognized the talk's title as a play on Gil Scott-Heron's [The Revolution Will Not Be Televised](http://lit.genius.com/Gil-scott-heron-the-revolution-will-not-be-televised-annotated). This is more than a convenient reference. The kind of revolution Scott-Heron was talking about was one that only happens with your direct participation:
+Many readers will have recognized the talk's title as a play on Gil Scott-Heron's [The Revolution Will Not Be Televised](http://lit.genius.com/Gil-scott-heron-the-revolution-will-not-be-televised-annotated). This is more than a convenient reference. The kind of revolution Scott-Heron was talking about is one that happens only with your direct participation:
 
 > You will not be able to stay home, brother <br>
 > You will not be able to plug in, turn on and cop out <br>
