@@ -1,10 +1,15 @@
-The contents of this directory are encrypted using [git-crypt](https://www.agwa.name/projects/git-crypt/), version 0.3.
+---
+layout: page
+alias: /journal/index.html
+---
 
-This can be installed with brew:
+The contents of this journal are private. Files are encrypted using [git-crypt](https://www.agwa.name/projects/git-crypt/), version 0.3.
+
+Install `git-crypt` using `brew`:
 
     brew install git-crypt
 
-Then you can decrypt as follows:
+Then decrypt the repository contents as follows:
 
     cd <root of repository>
     git-crypt init /path/to/keyfile
