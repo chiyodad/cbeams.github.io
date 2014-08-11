@@ -1,2 +1,3 @@
+_drafts/* filter=git-crypt diff=git-crypt
 journal/* filter=git-crypt diff=git-crypt
 journal/README.md filter=! diff=!
