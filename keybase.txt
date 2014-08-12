@@ -1,0 +1,83 @@
+==================================================================
+https://keybase.io/cbeams
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://chris.beams.io
+  * I am cbeams (https://keybase.io/cbeams) on keybase.
+  * I have a public key with fingerprint 1E30 3130 08A7 8C74 3F4E  4197 3D21 4F8F 5BC5 ED73
+
+To claim this, I am signing this object:
+
+{
+    "body": {
+        "client": {
+            "name": "keybase.io node.js client",
+            "version": "0.4.15"
+        },
+        "key": {
+            "fingerprint": "1e30313008a78c743f4e41973d214f8f5bc5ed73",
+            "host": "keybase.io",
+            "key_id": "3D214F8F5BC5ED73",
+            "uid": "4b6eae39d51c53b19a87e0964e985200",
+            "username": "cbeams"
+        },
+        "merkle_root": {
+            "ctime": 1407845940,
+            "hash": "396137a4f7b58892f56dc21d3856e0d2ddccb4312b3011afacc5b2e607c0ae87a699621a82e73a6aee44928b98f6000d17478b85e61848d661688421468cb076",
+            "seqno": 35730
+        },
+        "service": {
+            "hostname": "chris.beams.io",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1407845985,
+    "expire_in": 157680000,
+    "prev": "b3ae1dbcf1956b3bcf6c07cd481a830941f27a83ee2647d1c7d2ac09dcfd2a88",
+    "seqno": 3,
+    "tag": "signature"
+}
+
+with the aforementioned key, yielding the PGP signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: GnuPG/MacGPG2 v2.0.22 (Darwin)
+Comment: GPGTools - https://gpgtools.org
+
+owFdkn1QVFUYxpdvAzRxIMRWwjsjQ8DQ/b7nbooJKDBkBEjh6LhzP85lLx97l91l
+gZgtNXEmS3dTiTLFQBRtUGMiKoSISbLCgRQSJKzQaWIJagAZGXCc7iWcsf57zzm/
+87zP857jXu6jC/TauC7TtbN70ubV4+F1OeP+fCXCK2IFYqhEhCIZmu1aZeaKIWJA
+CmEFz9lggqxEmRURJhTYopaYeMQBrTZZMasUmkAmYBTijNd47bYkm/Oh1WKVNTEE
+gwRKYASKAo4BAkMSEglJjGUIEcdICUgUL1BQZAhV06TY7P9piyxqGmVR3SVSVH4r
+2EolJVNbUhb50sUDkqchBwlWpDCBIniM5QADUZYmIQsoHEU10AatS5kEHnLFNs1t
+MbQWFkGjVVEWMwt2WQMwEmUASbEkqvrhbCatM0tjBMOREsNTALC4RNGigGMiASga
+oiIuioLAkwSG8wSKYZzECQLF45BGGQHlIGA4mmVpHOMADhmCozkISZLFAc8CiUZR
+VMQYkgE8oCCNARKINI3RAJBqWhoIPMrQagAbLDEriIGgGAJ1akurQxagZlub2aNo
+JqtsS1jM9+/sLFbFrghKkXpmststBi21vcKisWWQN15YkjHysllU3+zxV8VU9H8T
+AVQ8AsstshUaZY2gGBqo9lGtD3SomjzBQUzkBQljKZon1IIW1BmIJFCzEyhLYhLO
+qBWEOE0yIiYwIs4JKCsKkloA8FhO1SeXr0ra5HwzZy+1QsT5lrfeV+cVqPP389a+
+rS7wiZWP/jLZsVLnPgKe3+cu2NU3O3iib/t86565XzPXdlclNSbMpx89O00e3Mn0
+ex6UHTHXDpZktOwP8mqbKM6LDW0O4jd4nLHubeHZ+Y2bu2wZAw6l3bt2xNIbGDM7
+oH9thPQdjjrdlXeFLXjgh98/O/b63eh497OX3rf7nWxtZbKmvpTGqyZqzgS1pOee
+zypHiKLkwBdWJyfmxTSVVx8zvTe0iu85VOYVeXmH49LNmLGGjrQ3Bn+/ktxyLwJM
+1RgM9S/+9ePtr4TIZcdGXW7f5JcHzm2rTqTvPO14JfLO3PDoLz/p2bpXe6sK2675
+ei7G1C2E1+a4Bvb/4B9pTpycvl4wXR3m3dl96k+HfePD+B3Ljuagl0eb+laFXTx1
+/ZvDzk1ZNzeYZsZXT09UHGBDRGPJgfobIZsBs6LD/VA63p4241OzqT+jcEpKmssI
+jnZ14o05F/rhd8f/RiZTi+uDM35+ZrfunXVvB8z/kRt1vjTPNTdE9V/135L2dWXu
+vroz6ztPvrR+Rnh3z8L91E8b9n5g2HUoODe76ZawEJPboFwd+aJqjenz0rnPXNb0
+oZQVa2NNXb0RNR/B0Bn9wY+dJ2Kbh0W9ZXd03PIP23r6TnueM/qEP5lXvz0uJDUu
+W/r+N5dcMugMbQ6LuD3QNpsdcy8VDfBtuvuUT/s5Xn/jcNm17sxPxvbyb4oBHqyg
+oP/bW2v+AQ==
+=zXxl
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/cbeams
+
+==================================================================
