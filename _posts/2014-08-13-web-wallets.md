@@ -1,7 +1,6 @@
 ---
 layout: post
 title: A Few Thoughts on Bitcoin Web Wallets
-permalink: /posts/web-wallets
 date: Wed Aug 13 23:58:06 +0200 2014
 timestamp: 18995576
 ---
