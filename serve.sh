@@ -22,5 +22,5 @@ while true; do
     /usr/local/bin/git fetch origin
     /usr/local/bin/git reset --hard origin/master
     echo git repo updated. killing jekyll.
-    kill -9 $!
+    kill -9 $JEKYLLPID
 done
