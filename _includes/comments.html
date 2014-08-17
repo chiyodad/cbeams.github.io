@@ -1,14 +1,11 @@
 <div>
-  <a id="comments" href="#comments" onclick="showComments()">show comments</a>
+  <hr/>
+  <a id="comments"/>
   <div id="disqus_thread"/>
   <script type="text/javascript">
     var disqus_shortname = 'cbeams';
-    var showComments = function() {
-      document.getElementById("comments").style.visibility = 'hidden';
-
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    };
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
   </script>
 </div>
