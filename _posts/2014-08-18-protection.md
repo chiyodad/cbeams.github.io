@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Protection
+title: Bitcoin's Built-In Consumer Protections
 date: Mon Aug 18 23:59:22 +0200 2014
 timestamp: 19002777
 ---
@@ -22,7 +22,7 @@ Matonis then goes on to enumerate a number of bitcoin's inbuilt consumer protect
 > 7. Protection from government-sponsored inflation
 > 8. Protection from confiscation
 
-Contrast these benefits against many of the risks listed in the CFPB's report (which I am paraphrasing here):
+Contrast these benefits against the risks listed in the CFPB's report (which I am paraphrasing here):
 
 1. Virtual currency prices can be very volatile
 2. Virtual currency transactions can leak private information
@@ -37,14 +37,8 @@ The question you must ask yourself is this: _Are you willing to deal with these 
 
 A number of the risks listed by the CFPB can be reduced to a single, crucial bit of advice: _don't lose your private keys_. Making that advice easy to follow is tough, but it is possible. It'll happen through continued user education, ever-better designed software wallets, and the proliferation of dedicated hardware wallets, cards, etc.
 
-Price volatility is the other main risk, and it's even harder to tame. In all likelihood we won't see a stable bitcoin value until (a) someone invents a peer-to-peer credit superstructure atop bitcoin and/or (b) it has a great many more users. In either case, velocity and liquidity are key to taming volatility, and there are probably no big shortcuts to getting there.
+Price volatility is the other main risk, and it's even harder to tame. In all likelihood we won't see a stable bitcoin value until (a) someone invents a peer-to-peer credit superstructure atop bitcoin and/or (b) it has a great many more users. In either case, velocity will likely be one of the keys to reducing volatility, and there are probably no big shortcuts to getting there.
 
-Fully aware of these risks, I am happily willing to take responsibility for keeping my private keys safe, taking proper precautions with privacy, and for making sure that I'm not overinvested in a volatile instrument.
+Fully aware of these risks, I am happily willing to take responsibility for keeping my private keys safe, taking proper precautions with my privacy, and for making sure that I'm not overinvested in a volatile instrument.
 
 I take these calculated risks because I want to see bitcoin's benefits—including its inbuilt consumer protections—realized to the fullest extent for myself and for the largest number of other people. The more people who feel and do the same, the faster we'll get there.
-
-Thanks Jon, for the write-up.
-
-
-
-
