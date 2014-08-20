@@ -7,6 +7,8 @@ timestamp: 18995576
 
 _I'm working on a longer piece on this topic, but [a self-imposed deadline](/posts/practice) demands that I get something published now. Here is a brief summary of things I'll go into more detail on later._
 
+_UPDATE 2014-08-20: I've published the "longer piece" mentioned above in its unfinished form [here](/posts/untitled)._
+
 Two days ago, the US Consumer Finance Protection Bureau [released](http://www.consumerfinance.gov/blog/consumer-advisory-virtual-currencies-and-what-you-should-know-about-them/) a [six-page document](http://files.consumerfinance.gov/f/201408_cfpb_consumer-advisory_virtual-currencies.pdf) advising consumers on "risks posed by virtual currencies". While generally negative (it is about _risks_ after all), it is thoughtfully written and without major errors or misinformation. It clearly has educating consumers in mind, and for that I'm glad to see it.
 
 Reading the document and thinking about the audience of new users it addresses, I was reminded of a concern I've had for a while now.
