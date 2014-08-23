@@ -141,24 +141,13 @@ This is complicated, but it does work (as evidenced by your reading this right n
 
 ## Run everything on boot
 
-In some ways this hardest part.
+If the server crashes or gets rebooted, the boot2docker vm should be started automatically and the container for the site should be run.
 
-For the moment, I've added /Applications/boot2docker to the startup items for the main user on this box.
+This is also a bit tricky to get right, and for the moment, I'm only halfway there.
 
-But I still must manually execute the docker command.
-
-docker run -p 4000:4000 -p 12345:12345 -d cbeams/chris.beams.io:v2 chris.beams.io/serve.sh
-
-I'll clean this up later.
-
-
-## Summary
-
-It was actually quite a bit of trouble getting all this set up. A good deal of that was because of the trouble with VirtualBox, port forwarding, and Jekyll.
-
-I'm looking forward to ...
+I've added /Applications/boot2docker to the startup items for the main user on the mac. boot2docker is actually a proper Mac application bundle, so this works well enough. That handles starting the docker daemon VM, but then one must actually run the container for the site. For the moment, I'm doing this manually, but I'd like to hear suggestions about better ways to do it. I'm sure there's some way to get it all done using LaunchDaemons, but I really didn't want to waste the time. Andrew Mussey has some prior art here in [a tool he calls docker-osx](http://blog.amussey.com/post/85117547548/docker-starting-docker-on-system-boot-on-osx-via), but it's a little outdated at this point (pre Docker 1.0), so I didn't mess with it.
 
 
 ## Next steps
 
-Research monitoring resource consumption... attaching "meters" to a container. If this is possible, then I'll move on to prototyping a bitcoin micropayment channel solution.
+Now that the basic containerization is complete, I'll take a look at ways to monitor resource consumption at the container level. If this is possible, then it may make sense to take the next step and look into micropayment-based billing for use of those resources. See my [previous post](/posts/docker) for further details about this larger idea.
