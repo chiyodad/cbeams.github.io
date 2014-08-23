@@ -8,7 +8,7 @@ cd $(dirname $0)
 echo updating git repo...
 git stash # just to be safe
 git fetch origin
-git reset --hard origin/docker
+git reset --hard origin/master
 
 while true; do
     echo starting jekyll on port $SERVEPORT...
@@ -20,7 +20,7 @@ while true; do
     echo got webhook request. updating git repo...
     git stash # just to be safe
     git fetch origin
-    git reset --hard origin/docker
+    git reset --hard origin/master
     echo git repo updated. killing jekyll.
     kill -9 $JEKYLLPID
 done
