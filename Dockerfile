@@ -37,4 +37,4 @@ RUN gem install execjs therubyracer
 RUN git clone --branch docker https://github.com/cbeams/chris.beams.io.git
 
 # Run the site with the following command (replacing 'v2' with the correct tag):
-#     docker run -p 4000:4000 -d cbeams/chris.beams.io:v2 jekyll serve --source chris.beams.io
+#     docker run -p 4000:4000 -p 12345:12345 -d cbeams/chris.beams.io:v2 jekyll serve --source chris.beams.io
