@@ -85,25 +85,46 @@ I developed the Dockerfile iteratively by making a change and running the follow
     $ docker build --tag="cbeams/chris.beams.io:v2" .
     $ docker run -p 4000:4000 -p 12345:12345 -d cbeams/chris.beams.io:v2 chris.beams.io/serve.sh
 
-As errors cropped up, I would make a change to the Dockerfile, rebuild and re-run. For convenience, I did all of this locally on my (Mac) laptop as opposed to doing it on the server.
+As errors cropped up, I would make a change to the Dockerfile, rebuild and re-run. For convenience, I did all of this locally on my laptop as opposed to doing it on the server.
 
 
 ## Share the image
 
-Once I got the image perfected, I pushed it to [a repository](https://registry.hub.docker.com/u/cbeams/chris.beams.io/) under my (free) account at [Docker Hub](https://hub.docker.com/). Docker Hub feels in many ways like GitHub, but hosting images rather than code. Again, you can [read up on it](http://docs.docker.com/userguide/dockerrepos/) in the user guide if this is new to you.
+Once I got the image perfected, I pushed it to [a repository](https://registry.hub.docker.com/u/cbeams/chris.beams.io/) under my account at [Docker Hub](https://hub.docker.com/). Docker Hub feels a bit like GitHub, but hosting images rather than code. [Read up on it](http://docs.docker.com/userguide/dockerrepos/) in the user guide if it's new to you.
 
     $ docker push cbeams/chris.beams.io
 
-My image ended up being around 250 MB, so pushing it from my modest connection at home was a rather slow process. Fortunately, I didn't need to do so frequently.
+My image ended up being around 250 MB, so uploading it from my modest connection at home was a rather slow process. Fortunately, I didn't need to do so very frequently.
 
 
-## Pull the image
+## Run the image
 
-_TODO: finish writing. Everything after this sentence is a work in progress._
+Now over on the server (which had also already been outfitted with boot2docker), I ran the following command to fire up the container:
 
-...
+    $ docker run -p 4000:4000 -p 12345:12345 -d cbeams/chris.beams.io:v2 chris.beams.io/serve.sh
+
+Let's break that down:
+
+ - The `cbeams/chris.beams.io:v2` parameter tells the Docker daemon to run the image named `cbeams/chris.beams.io` at tag `v2`—the same image we pushed in the last step. Since the server had not before seen this image, it was automatically downloaded from Docker Hub and then cached locally for future use.
+
+ - The `-d` flag indicates the container should be run in the background as opposed to interactively.
+
+ - The `-p` flags configure which ports are exposed on the container, and which ports on the host system should forward to them. This will be explained in more detail in the step below.
+
+ - The `chris.beams.io/serve.sh` parameter is the [command to be run](https://github.com/cbeams/chris.beams.io/blob/50c89b3a124856aa5c45de8a44f03021ec06a948/serve.sh) within the container. This fires up Jekyll and listens for webhook requests from GitHub.
+
 
 ## Forward all the ports
+
+This is where things get tricky. There are actually _three layers_ of port forwarding in this arrangement:
+
+1. Forwarding port 80 from my cablemodem to port 4000 on the Mac Mini server.
+2. Forwarding port 4000 on the Mac Mini host to the boot2docker Linux vm guest running in VirtualBox.
+3. Exposing port 4000 on the container itself, and forwarding requests from the boot2docker daemon to it.
+
+(1) has nothing to do with Docker, of course. Just a one time configuration within the router's firmware.
+
+(2) Can be done within the VirtualBox UI:
 
 Forwarding port from 
 
