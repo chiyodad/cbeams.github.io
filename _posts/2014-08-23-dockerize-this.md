@@ -118,19 +118,17 @@ Let's break that down:
 
 This is where things get tricky. There are actually _three layers_ of port forwarding in this arrangement:
 
-1. Forwarding port 80 from my cablemodem to port 4000 on the Mac Mini server.
-2. Forwarding port 4000 on the Mac Mini host to the boot2docker Linux vm guest running in VirtualBox.
-3. Exposing port 4000 on the container itself, and forwarding requests from the boot2docker daemon to it.
+**From cablemodem to OS X server.** This has nothing to do with Docker, of course. Just a one time configuration mapping port 80 on the modem to port 4000 on the server.
 
-(1) has nothing to do with Docker, of course. Just a one time configuration within the router's firmware.
+**From physical OS X host to virtual Linux guest.** The Linux guest in question is **not** the Docker container. It is the Docker daemon running in VirtualBox as set up by boot2docker. This configuration happens within VirtualBox, and can be done one of two ways: at the command line with `VBoxManager`:
 
-(2) Can be done within the VirtualBox UI:
+    $ VBoxManage modifyvm "boot2docker-vm" --natpf1 "jekyll,tcp,,4000,,4000"
 
-Forwarding port from 
+Or via the GUI:
 
-This is tricky. Do a screenshot.
+![VirtualBox Port Forwarding](http://i.imgur.com/5fgzCiw.jpg)
 
-VBoxManage modifyvm "boot2docker-vm" --natpf1 "jekyll,tcp,,4000,,4000"
+**From virtual Linux guest to Docker container.** Port 4000 must be explicitly exposed on the container itself, and requests to the boot2docker daemon must be forwarded to it. This is configured with the `-p 4000:4000` flag as seen in the step above.
 
 
 ## Run everything on boot
