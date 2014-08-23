@@ -16,7 +16,7 @@ while true; do
     JEKYLLPID=$!
     echo jekyll started with pid $JEKYLLPID.
     echo listening for webhook notifications on port $HOOKPORT.
-    echo -e "HTTP/1.1 202 Accepted\r\nContent-Type: text/html\r\n\r\n" | nc -l $HOOKPORT
+    echo -e "HTTP/1.1 202 Accepted\r\nContent-Type: text/html\r\n\r\n" | nc -l -p $HOOKPORT
     echo got webhook request. updating git repo...
     #/usr/local/bin/git stash # just to be safe
     #/usr/local/bin/git fetch origin
