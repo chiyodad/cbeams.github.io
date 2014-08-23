@@ -12,6 +12,9 @@ RUN apt-get install -y g++
 # required to clone the site and keep it up to date
 RUN apt-get install -y git
 
+# required to listen on $HOOKPORT for update notifications requests from GitHub
+RUN apt-get install -y netcat
+
 # The -dev version of Ruby 1.9.1 is necessary to avoid
 # "cannot load such file -- mkmf (LoadError)" error when installing Jekyll.
 # See http://askubuntu.com/questions/305884/how-to-install-jekyll
