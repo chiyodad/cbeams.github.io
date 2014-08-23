@@ -120,7 +120,9 @@ This is where things get tricky. There are actually _three layers_ of port forwa
 
 **From cablemodem to OS X server.** This has nothing to do with Docker, of course. Just a one time configuration mapping port 80 on the modem to port 4000 on the server.
 
-**From physical OS X host to virtual Linux guest.** The Linux guest in question is **not** the Docker container. It is the Docker daemon running in VirtualBox as set up by boot2docker. This configuration happens within VirtualBox, and can be done one of two ways: at the command line with `VBoxManager`:
+**From physical OS X host to virtual Linux guest.** The Linux guest in question is _not_ the Docker container. It is the Docker _daemon_ running in VirtualBox as set up by boot2docker. This configuration happens within VirtualBox, and can be done one of two ways:
+
+At the command line with `VBoxManager`:
 
     $ VBoxManage modifyvm "boot2docker-vm" --natpf1 "jekyll,tcp,,4000,,4000"
 
@@ -128,12 +130,18 @@ Or via the GUI:
 
 ![VirtualBox Port Forwarding](http://i.imgur.com/5fgzCiw.jpg)
 
-**From virtual Linux guest to Docker container.** Port 4000 must be explicitly exposed on the container itself, and requests to the boot2docker daemon must be forwarded to it. This is configured with the `-p 4000:4000` flag as seen in the step above.
+**From virtual Linux guest to Docker container.** Finally, port 4000 must be explicitly exposed on the container itself, and requests to the boot2docker daemon must be forwarded to it. This is configured with the `-p 4000:4000` flag as seen in the step above.
+
+Altogether then, the request flow is:
+
+    router:80 -> mac:4000 -> vbox:4000 -> container:4000
+
+This is complicated, but it does work (as evidenced by your reading this right now). Keep in mind that the worst part is the VirtualBox configuration, and that goes away entirely if the physical server is a Linux box to begin with.
 
 
 ## Run everything on boot
 
-In some ways the hardest part.
+In some ways this hardest part.
 
 For the moment, I've added /Applications/boot2docker to the startup items for the main user on this box.
 
