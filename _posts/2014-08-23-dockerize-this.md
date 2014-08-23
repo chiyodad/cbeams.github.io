@@ -15,14 +15,14 @@ This arrangement works pretty well, but I wanted to port it to Docker for severa
 2. I actually plan to move this server away from OS X and to GNU/Linux anyway. This will be easier if the site is already containerized.
 3. For reasons explained in my [last post](/posts/docker), I want to experiment with a few ideas around peer-to-peer container hosting. This site is a perfect testing ground.
 
-The move to Docker was more of a hassle than I thought it would be. It took the better part of two days, all told. Here are the steps I took. I'm still new to Docker, so I'm sure there are better ways to do certain things. Suggestions welcome.
+The move to Docker was more of a hassle than I thought it would be. It took the better part of two days, all told. What follows are the steps I took. I'm still new to Docker, so I'm sure there are better ways to do certain things. Suggestions welcome.
 
 
 ## Install boot2docker
 
-Docker is based on Linux containers, which means that running Docker on any OS other than Linux is going to require a workaround.
+Docker is based on Linux containers, which means that running it on any OS other than Linux is going to require a workaround.
 
-On OS X, [boot2docker](http://boot2docker.io/) is that workaround. It installs VirtualBox and everything else you need to run a Linux virtual machine that will act as your Docker daemon. boot2docker now has a pretty polished installation experience (much appreciated), but the presence of the virtual machine just cannot be made transparent. This isn't boot2docker's fault, it's just a fact of any LXC-based solution: if you're using Docker, you should really be using Linux. Otherwise things are going to be unnecessarily painful. You've been warned.
+On OS X, [boot2docker](http://boot2docker.io/) is that workaround. It installs VirtualBox and everything else you need to run a Linux virtual machine that will act as your Docker daemon. boot2docker now has a pretty polished installation experience (much appreciated), but the presence of the virtual machine just cannot be made transparent. This isn't boot2docker's fault, it's just a fact of any LXC-based solution: if you're using Docker, you should really be hosting it on Linux. Otherwise things are going to be unnecessarily painful. You've been warned.
 
 Incidentally, [boot2docker 1.2.0](https://github.com/boot2docker/boot2docker/releases/tag/v1.2.0) was released just a few hours prior to my writing this post. I can confirm that it works as advertised. Follow the instructions at <http://docs.docker.com/installation/mac/>.
 
@@ -60,7 +60,7 @@ RUN apt-get install -y netcat
 RUN apt-get install -y ruby1.9.1-dev
 
 # Python 3 is installed by default, but this creates a conflict with
-@ the Pygments highlighting library. The solution is to install
+# the Pygments highlighting library. The solution is to install
 # Python 2.7 and ensure it is available on the $PATH as `python2`.
 RUN apt-get install -y python2.7
 RUN ln -s /usr/bin/python2.7 /usr/bin/python2
@@ -116,9 +116,9 @@ Let's break that down:
 
 This is where things get tricky. There are actually _three layers_ of port forwarding in this arrangement:
 
-**From cablemodem to OS X server.** This has nothing to do with Docker, of course. Just a one time configuration mapping port 80 on the modem to port 4000 on the server.
+**1. From cablemodem to OS X server.** This has nothing to do with Docker, of course. Just a one time configuration mapping port 80 on the router to port 4000 on the server.
 
-**From physical OS X host to virtual Linux guest.** The Linux guest in question is _not_ the Docker container. It is the Docker _daemon_ running in VirtualBox as set up by boot2docker. This configuration happens within VirtualBox, and can be done one of two ways:
+**2. From OS X server to virtual Linux guest.** The Linux guest in question is _not_ the Docker container. It is the Docker _daemon_ running in VirtualBox as set up by boot2docker. This configuration happens within VirtualBox, and can be done one of two ways:
 
 At the command line with `VBoxManager`:
 
@@ -128,11 +128,11 @@ Or via the GUI:
 
 ![VirtualBox Port Forwarding](http://i.imgur.com/5fgzCiw.jpg)
 
-**From virtual Linux guest to Docker container.** Finally, port 4000 must be explicitly exposed on the container itself, and requests to the boot2docker daemon must be forwarded to it. This is configured with the `-p 4000:4000` flag as seen in the step above.
+**3. From virtual Linux guest to Docker container.** Finally, port 4000 must be explicitly exposed on the container itself, and requests to the boot2docker daemon must be forwarded to it. This is configured with the `-p 4000:4000` flag as seen in the step above.
 
 Altogether then, the request flow is:
 
-    router:80 -> mac:4000 -> vbox:4000 -> container:4000
+    router:80 -> server:4000 -> virtualbox:4000 -> container:4000
 
 This is complicated, but it does work (as evidenced by your reading this right now). Keep in mind that the worst part is the VirtualBox configuration, and that goes away entirely if the physical server is a Linux box to begin with.
 
@@ -143,7 +143,7 @@ If the server crashes or gets rebooted, the boot2docker vm should be started aut
 
 This is also a bit tricky to get right, and for the moment, I'm only halfway there.
 
-I've added /Applications/boot2docker to the startup items for the main user on the mac. boot2docker is actually a proper Mac application bundle, so this works well enough. That handles starting the docker daemon VM, but then one must actually run the container for the site. For the moment, I'm doing this manually, but I'd like to hear suggestions about better ways to do it. I'm sure there's some way to get it all done using LaunchDaemons, but I really didn't want to waste the time. Andrew Mussey has some prior art here in [a tool he calls docker-osx](http://blog.amussey.com/post/85117547548/docker-starting-docker-on-system-boot-on-osx-via), but it's a little outdated at this point (pre Docker 1.0), so I didn't mess with it.
+I've added `/Applications/boot2docker` to the login items for the main user on the mac. boot2docker is actually a proper Mac application bundle, so this works well enough. That handles starting the Docker daemon VM, but then one must actually run the container for the site. For now, I'm doing this manually, but I'd like to hear suggestions about better ways to do it. I'm sure there's some way to get it all done using LaunchDaemons, but I really didn't want to waste the time. Andrew Mussey has some prior art in [a tool he calls docker-osx](http://blog.amussey.com/post/85117547548/docker-starting-docker-on-system-boot-on-osx-via), but it's a little outdated at this point (pre-Docker 1.0), so I didn't mess with it.
 
 
 ## Next steps
