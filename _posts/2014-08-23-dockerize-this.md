@@ -7,6 +7,8 @@ timestamp: 19009968
 
 _This site is now being served from within a Docker container. Here's what I did to make it happen._
 
+> _**NOTE:** This post is not yet finished. If you're reading this, I'm still working on it right now. I published it as-is to meet a [self-imposed deadline](/posts/practice)._
+
 As I've mentioned before, this site is [hosted from home](/posts/indiehost) and [generated using Jekyll](/posts/epoch). The machine it's being hosted on is a Mac Mini, and the actual jekyll process is [managed by a LaunchDaemon](https://github.com/cbeams/chris.beams.io/commit/5f614e68a63694b2c846f4c788dc4b8499aa196c), mainly to ensure that everything comes back up cleanly after a reboot.
 
 This arrangement works pretty well, but I wanted to port it to Docker for several reasons:
