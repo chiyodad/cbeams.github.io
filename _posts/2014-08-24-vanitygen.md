@@ -11,7 +11,7 @@ Bitcoin addresses are pretty inscruitable, just a long series of letters and num
 
     1KTWiBYEQMKBZvF5MZQXYRBbfiAoLJHab6 
 
-So-called _vanity addresses_ make this situation slightly better by leading with a more recognizable string of text, usually associated somehow with the owner of the address. For example, I just created [this one](https://blockchain.info/address/1BeamsTXoQ4rXzogaqsLR8Cgd8sf98oGGb):
+So-called _vanity addresses_ make this situation slightly better by leading with a more recognizable string of text—usually associated somehow with the owner of the address. For example, I just created [this one](https://blockchain.info/address/1BeamsTXoQ4rXzogaqsLR8Cgd8sf98oGGb):
 
     1BeamsTXoQ4rXzogaqsLR8Cgd8sf98oGGb
 
