@@ -184,7 +184,7 @@ There are a number of other contexts in git where the distinction between subjec
 
 50 characters is not a hard limit, just a rule of thumb. Keeping subject lines at this length ensures that they are readable, and forces the author to think for a moment about the most concise way to explain what's going on.
 
-> _Tip: If you're having a really hard time summarizing everything, you might be committing too many changes at once. Strive for [_atomic commits_](http://www.freshconsulting.com/atomic-commits/) (a topic for a separate post)._
+> _Tip: If you're having a hard time summarizing, you might be committing too many changes at once. Strive for [_atomic commits_](http://www.freshconsulting.com/atomic-commits/) (a topic for a separate post)._
 
 GitHub's UI is fully aware of these conventions. It will warn you if you go past the 50 character limit:
 
