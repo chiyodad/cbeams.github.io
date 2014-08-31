@@ -294,7 +294,7 @@ For example:
  - If applied, this commit will <font color="green">_release version 1.0.0_</font>
  - If applied, this commit will <font color="green">_merge pull request #123 from user/branch_</font>
 
-Notice how this doesn't work for the other forms:
+Notice how this doesn't work for the other non-imperative forms:
 
  - If applied, this commit will <font color="red">_fixed bug with Y_</font>
  - If applied, this commit will <font color="red">_changing behavior of X_</font>
