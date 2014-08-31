@@ -11,11 +11,13 @@ timestamp: 19020223
 <a href="http://xkcd.com/1296/"><img src="http://imgs.xkcd.com/comics/git_commit.png"/></a>
 </center>
 
-## Table of Contents
+---
 
- - [Introduction](#intro)
- - [The Seven Rules](#seven-rules)
- - [Tips](#tips)
+<center>
+[Introduction](#intro) | [The Seven Rules](#seven-rules) | [Tips](#tips)
+</center>
+
+---
 
 <a name="intro"></a>
 ## Introduction: Why good commit messages matter
