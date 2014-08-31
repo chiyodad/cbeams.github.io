@@ -182,7 +182,7 @@ There are a number of other contexts in git where the distinction between subjec
 <a name="limit-50"></a>
 ### 2. Limit the subject line to 50 characters
 
-50 characters is not a hard limit, just a rule of thumb. Keeping subject lines at this length ensures that they are readable, and it forces the author to think for a moment about the most concise way to explain what's going on.
+50 characters is not a hard limit, just a rule of thumb. Keeping subject lines at this length ensures that they are readable, and forces the author to think for a moment about the most concise way to explain what's going on.
 
 > _Tip: If you're having a really hard time summarizing everything, you might be committing too many changes at once. Strive for [_atomic commits_](http://www.freshconsulting.com/atomic-commits/) (a topic for a separate post)._
 
