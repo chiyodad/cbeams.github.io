@@ -178,7 +178,7 @@ Or, `git shortlog`, which groups commits by user, again showing just the subject
     Walter Gibbs (1):
           Introduce protoype chess program
           
-There are a number of other contexts in git where the distinction between subject line and body kick in—but none of them work properly without the blank line in between.
+There are a number of other contexts in git where the distinction between subject line and body kicks in—but none of them work properly without the blank line in between.
 
 
 <a name="limit-50"></a>
