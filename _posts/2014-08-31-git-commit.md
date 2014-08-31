@@ -251,7 +251,7 @@ Or when clicking the "Merge" button on a GitHub pull request:
 
     Merge pull request #123 from someuser/somebranch
 
-So when you write your own commit messages in the imperative, you're following git's own built-in conventions. For example:
+So when you write your commit messages in the imperative, you're following git's own built-in conventions. For example:
 
 <font color="green">
 
