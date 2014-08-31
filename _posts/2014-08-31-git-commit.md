@@ -342,7 +342,7 @@ This [commit from Bitcoin Core](https://github.com/bitcoin/bitcoin/commit/eb0b56
 
 Take a look at the [full diff](https://github.com/bitcoin/bitcoin/commit/eb0b56b19017ab5c16c745e6da39c53126924ed6) and just think how much time the author is saving fellow and future committers by taking the time to provide this context here and now. If he didn't, it would probably be lost forever.
 
-In most cases, you can leave out details about how a change has been made. Code is generally self-explanatory in this regard (and if the code is so complex that it needs to be explained in prose, that's what source comments are for). Just focus on making clear the reasons you made the change in the first place: The way things worked before the change (and what was wrong with that), how they work now, and why you decided to solve it the way you did.
+In most cases, you can leave out details about how a change has been made. Code is generally self-explanatory in this regard (and if the code is so complex that it needs to be explained in prose, that's what source comments are for). Just focus on making clear the reasons you made the change in the first place—the way things worked before the change (and what was wrong with that), the way they work now, and why you decided to solve it the way you did.
 
 The future maintainer that thanks you may be yourself!
 
@@ -352,9 +352,9 @@ The future maintainer that thanks you may be yourself!
 
 ### Learn to love the command line. Leave the IDE behind.
 
-For as many reasons as there are git subcommands, it is wise to embrace the command line. Git is insanely powerful; IDEs are too, but for different reasons. I use an IDE every day (IntelliJ IDEA) and have used others extensively (Eclipse), but I have never seen IDE integration for git that could begin to match the ease and power of the command line (once you know it).
+For as many reasons as there are git subcommands, it's wise to embrace the command line. Git is insanely powerful; IDEs are too, but each in different ways. I use an IDE every day (IntelliJ IDEA) and have used others extensively (Eclipse), but I have never seen IDE integration for git that could begin to match the ease and power of the command line (once you know it).
 
-Certain git-related IDE functions are invaluable, like calling `git rm` when you delete a file, and doing the right stuff with `git` when you rename a file. Where everything falls apart is when you start trying to commit, merge, rebase, or do sophisticated history analysis through the IDE.
+Certain git-related IDE functions are invaluable, like calling `git rm` when you delete a file, and doing the right stuff with `git` when you rename one. Where everything falls apart is when you start trying to commit, merge, rebase, or do sophisticated history analysis through the IDE.
 
 When it comes to wielding the full power of git, it's command-line all the way.
 
