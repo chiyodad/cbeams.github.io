@@ -316,7 +316,7 @@ A good text editor can help here. It's easy to configure Vim, for example, to wr
 <a name="why-not-how"></a>
 ### 7. Use the body to explain what and why vs. how
 
-Here is a great example of a [commit from Bitcoin Core](https://github.com/bitcoin/bitcoin/commit/eb0b56b19017ab5c16c745e6da39c53126924ed6) that explains what changed and why:
+This [commit from Bitcoin Core](https://github.com/bitcoin/bitcoin/commit/eb0b56b19017ab5c16c745e6da39c53126924ed6) is a great example of explaining what changed and why:
 
     commit eb0b56b19017ab5c16c745e6da39c53126924ed6
     Author: Pieter Wuille <pieter.wuille@gmail.com>
@@ -342,7 +342,7 @@ Here is a great example of a [commit from Bitcoin Core](https://github.com/bitco
 
 Take a look at the [full diff](https://github.com/bitcoin/bitcoin/commit/eb0b56b19017ab5c16c745e6da39c53126924ed6) and just think how much time the author is saving fellow and future committers by taking the time to provide this context here and now. If he didn't, it would probably be lost forever.
 
-In most cases, you can leave out details about how a change has been made. Code is generally self-explanatory in this regard. Just focus on making clear the reasons you made the change in the first place: The way things worked before the change (and what was wrong with that), how they work now, and why you decided to solve it the way you did.
+In most cases, you can leave out details about how a change has been made. Code is generally self-explanatory in this regard (and if the code is so complex that it needs to be explained in prose, that's what source comments are for). Just focus on making clear the reasons you made the change in the first place: The way things worked before the change (and what was wrong with that), how they work now, and why you decided to solve it the way you did.
 
 The future maintainer that thanks you may be yourself!
 
