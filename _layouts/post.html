@@ -5,8 +5,5 @@ layout: default
 <h1 class="post-title">{{ page.title }}{%if page.subtitle %}<br/><em><small>{{ page.subtitle }}</small></em>{% endif %}</h1>
 <span class="post-date">{{ page.date | date_to_string }}</span>
 {{ content }}
-<hr/>
-<center><small><em>
-Comments? Find me on Twitter at <a href="https://twitter.com/cbeams">@cbeams</a> or email me at <a href="mailto:chris@beams.io?subject={{ page.title }}">chris@beams.io</a> (<a href="https://keybase.io/cbeams">pgp</a>).
-</em></small></center>
+{% include comments.html %}
 </div>
