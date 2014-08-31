@@ -262,7 +262,7 @@ So when you write your own commit messages in the imperative, you're following g
 
 </font>
 
-It can be a little awkward at first writing this way. We're more used to speaking in the _indicative mood_, which is all about reporting facts. That's why commit messages often end up reading like this:
+Writing this way can be a little awkward at first. We're more used to speaking in the _indicative mood_, which is all about reporting facts. That's why commit messages often end up reading like this:
 
 <font color="red">
 
