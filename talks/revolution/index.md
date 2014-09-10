@@ -3,6 +3,7 @@ layout: post
 title: The Revolution Will Not Be Centralized
 date: Wed Sep 10 06:41:03 -0500 2014
 timestamp: 19035285
+alias: /talks
 ---
 
 Supporting resources for a talk originally delivered at [SpringOne 2GX 2014](https://2014.event.springone2gx.com).
