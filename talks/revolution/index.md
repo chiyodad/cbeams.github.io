@@ -20,6 +20,10 @@ _Supporting resources for a talk originally delivered at [SpringOne 2GX 2014](ht
 
 ### Video
 
+ - [DZone](http://java.dzone.com/articles/springone2gx-2014-replay-30)
+ - [YouTube](https://www.youtube.com/watch?v=kGsEJR8kAOM)
+ - [Slideshare](http://www.slideshare.net/SpringCentral/the-revolution-will-not-be-centralizedhow-to-build-a-blockchain-using-spring-to-develop-a-bitcoinlike-virtual-currency)
+
 A link to the video of the talk will be posted here as it becomes available. InfoQ has stated this will be sometime within the next seven months (as of Sept. 10th 2014). Subscribe to the comments thread on this page to be notified when it is published.
 
 ### Resources
@@ -27,6 +31,5 @@ A link to the video of the talk will be posted here as it becomes available. Inf
  - [How to import a private key into MultiBit](https://multibit.org/help_importASingleKey.html)
  - [Bitnodes](http://getaddr.bitnodes.io)
  - [Keybase](https://keybase.io)
- - [indie Phone](https://ind.ie/phone/)
  - Aral Balkan's [free is a lie](http://www.thersa.org/events/audio-and-past-events/2014/Free-is-a-Lie) presentation
 

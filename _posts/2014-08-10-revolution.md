@@ -7,6 +7,8 @@ timestamp: 18990970
 
 _I'll be giving [this talk](https://2014.event.springone2gx.com/schedule/sessions/the_revolution_will_not_be_centralized.html) next month in Dallas at the ninth annual [SpringOne](http://2014.event.springone2gx.com) conference. Here's the abstract and a bit about my motivation._
 
+_*Update*, March 19th, 2015: Presentation [video](https://www.youtube.com/watch?v=kGsEJR8kAOM) and [slides](http://www.slideshare.net/SpringCentral/the-revolution-will-not-be-centralizedhow-to-build-a-blockchain-using-spring-to-develop-a-bitcoinlike-virtual-currency) are now available._
+
 > Massive government-run data dragnets. Advertising-based "free" cloud services working against the best interests of their users. Giant, unreadable end user license agreements. It seems that everywhere we turn, the walls are closing in on individual privacy and autonomy.
 >
 > The situation is complex. Out of confusion and frustration, many users have already given up. Common refrains are "privacy is dead" and "I've got nothing to hide".
