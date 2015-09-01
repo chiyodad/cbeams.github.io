@@ -7,7 +7,8 @@ timestamp: 19017450
 
 _I'll be spending some of my time contributing to Bitsquare—a new peer-to-peer bitcoin exchange. Here's what it's all about and why I'm excited to participate._
 
-![weak link](https://farm5.staticflickr.com/4092/5081408638_bbde576f8b_b.jpg)
+<a data-flickr-embed="true" data-header="false" data-footer="false" data-context="false"  href="https://www.flickr.com/photos/lodd/5484861699/in/photolist-9mFmi2-7xTewa-5ujdkF-6z7p6Y-64VEpu-5mT2jw-pTWbc7-i8ekwq-5s9Zqv-55psD7-5hoeJf-ksN5hc-mgoNy-6uR4aC-k4Qbsk-ht2R4T-uSiHPT-9C2NNj-7BMDyX-87TrmK-7u2YrJ-d3Nkrh-omx5YS-bp4Usj-aJpyRx-8aLHN-6yngpx-n7SiWH-bAcK4M-ts1kX-oaZqfQ-sVDUhV-9wvTEV-2hSaTN-5V1ie1-9zm75H-8kLFkx-oac2qw-obDNxr-86kvLx-ovLVRx-ovjq2K-o9nkPT-otgWaN-opNYdw-omXbeM-obLbHg-ob39bi-obPKAB-oqKsiR" title="No chain is stronger then it&#x27;s weakest link"><img src="https://farm6.staticflickr.com/5100/5484861699_ca107f695f_b.jpg" width="1024" height="566" alt="No chain is stronger then it&#x27;s weakest link"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
+
 
 [Exchanges](https://en.wikipedia.org/wiki/Bitcoin_exchange#List_of_Bitcoin_Exchanges) play a critical role in the bitcoin ecosystem. Without them, it would be nearly impossible to buy or sell bitcoins for euros or dollars. Bitcoin would be a market without liquidity; bitcoin would be worthless. We need exchanges.
 
