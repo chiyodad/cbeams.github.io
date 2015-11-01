@@ -11,7 +11,7 @@ Thanks to:
 
  - [Mark Otto](http://markdotto.com/) for the development of [Poole](http://getpoole.com/), the Jekyll theme on which this site's CSS was originally based (and [much of it](/css/style.css) still is).
 
- - [Benjamin Winterberg](http://winterbe.com) for permission to use his excellent [Darcula](http://www.jetbrains.com/idea/)-themed [syntax highlighting](http://winterbe.com/posts/2014/03/16/java-8-tutorial/) (which I have [modified](http://localhost:4000/css/darcula.css)).
+ - [Benjamin Winterberg](http://winterbe.com) for permission to use his excellent [Darcula](http://www.jetbrains.com/idea/)-themed [syntax highlighting](http://winterbe.com/posts/2014/03/16/java-8-tutorial/) (which I have [modified](/css/darcula.css)).
 
  - [Aral Balkan](http://aralbalkan.com/), some elements of whose CSS I've ripped off (and modified).
 
