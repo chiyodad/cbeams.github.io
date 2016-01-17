@@ -5,5 +5,15 @@ layout: default
 <h1 class="post-title">{{ page.title }}{%if page.subtitle %}<br/><em><small>{{ page.subtitle }}</small></em>{% endif %}</h1>
 <span class="post-date">{{ page.date | date_to_string }}</span>
 {{ content }}
-{% include comments.html %}
+<div>
+  <hr/>
+  <a id="comments"/>
+  <div id="disqus_thread"/>
+  <script type="text/javascript">
+    var disqus_shortname = 'cbeams';
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  </script>
+</div>
 </div>

@@ -1,5 +1,0 @@
-# overrides for use when running locally. see servelocal.sh
-title:            Chris Beams (localhost)
-url:              http://localhost:4000
-feedurl:          http://localhost:4000
-shorturl:         http://localhost:4000

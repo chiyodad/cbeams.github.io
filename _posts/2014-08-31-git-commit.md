@@ -2,10 +2,7 @@
 layout: post
 title: How to Write a Git Commit Message
 date: Sun Aug 31 02:45:42 +0200 2014
-timestamp: 19020223
 ---
-
-{% excerpt %}{% endexcerpt %}
 
 <center>
 <a href="http://xkcd.com/1296/"><img src="http://imgs.xkcd.com/comics/git_commit.png"/></a>

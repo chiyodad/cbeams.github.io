@@ -1,9 +1,4 @@
 markdown:         redcarpet
 permalink:        /posts/:title
-title:            Chris Beams
 url:              http://chris.beams.io
 feedurl:          http://feed.chris.beams.io
-shorturl:         http://cbea.ms
-author:
-  name:           Chris Beams
-  email:          chris@beams.io

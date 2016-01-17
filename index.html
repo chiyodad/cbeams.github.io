@@ -1,20 +1,12 @@
 ---
 layout: page
 title: Chris Beams
-timestamp: 18904519
-alias: /posts
 ---
 <ul>
-{% strip %}
 {% for post in site.posts %}
-  {% unless post.featured == false %}
-    {% if post.excerpt_tag %}{% assign raw_excerpt = post.excerpt_tag %}{% else %}{% assign raw_excerpt = post.excerpt %}{% endif %}
-    {% assign stripped_excerpt = raw_excerpt | strip_html | markdownify | remove: '<p>' | remove: '</p>' %}
   <li class="post-list">
     <time datetime="{{ post.date }}">{{ post.date | date: "%b %-d, %Y" }}</time>
-    <a href="{{ post.url }}">{{ post.title }}</a> {{ stripped_excerpt }}
+    <a href="{{ post.url }}">{{ post.title }}</a>
   </li>
-  {% endunless %}
 {% endfor %}
-{% endstrip %}
 </ul>

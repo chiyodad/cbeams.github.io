@@ -1,4 +1,4 @@
 _site
 .DS_Store
-*.sw[o|p]
-untitled.mp3
+*.sw[op]
+.jekyll-metadata

@@ -1,13 +1,37 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
-{% include head.html %}
+<head>
+  <title>{{ page.title }}</title>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <link rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
+
+  <link rel="alternate" type="application/atom+xml" title="Chris Beams" href="{{ site.feedurl }}/atom.xml">
+
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/darcula.css">
+</head>
 <body>
 <div class="container content">
 <div class="masthead">
 </div>
 {{ content }}
-{% include footer.html %}
 </div>
-{% include gauges.html %}
+<script type="text/javascript">
+  var _gauges = _gauges || [];
+  (function() {
+    var t   = document.createElement('script');
+    t.type  = 'text/javascript';
+    t.async = true;
+    t.id    = 'gauges-tracker';
+    t.setAttribute('data-site-id', '539db9408bfdf74599000a56');
+    t.src = '//secure.gaug.es/track.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t, s);
+  })();
+</script>
 </body>
 </html>
