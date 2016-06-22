@@ -19,7 +19,7 @@ date: Sun Aug 31 02:45:42 +0200 2014
 <a name="intro"></a>
 ## Introduction: Why good commit messages matter
 
-If you browse the log of any random git repository you will probably find its commit messages are more or less a mess. For example, take a look at [these gems](https://github.com/spring-projects/spring-framework/commits/e5f4b49?author=cbeams) from my early days committing to Spring:
+If you browse the log of any random git repository, you will probably find its commit messages are more or less a mess. For example, take a look at [these gems](https://github.com/spring-projects/spring-framework/commits/e5f4b49?author=cbeams) from my early days committing to Spring:
 
     $ git log --oneline -5 --author cbeams --before "Fri Mar 26 2009"
 
@@ -49,7 +49,7 @@ The contributors to these repositories know that a well-crafted git commit messa
 
 > Re-establishing the context of a piece of code is wasteful. We can't avoid it completely, so our efforts should go to [reducing it](http://www.osnews.com/story/19266/WTFs_m) [as much] as possible. Commit messages can do exactly that and as a result, _a commit message shows whether a developer is a good collaborator_.
 
-If you haven't given much thought to what makes a great git commit message, it may be the case that you haven't spent much time using `git log` and related tools. There is a vicious cycle here: because the commit history is unstructured and inconsistent, one doesn't spend much time using or taking care of it. And because it doesn't get used or taken care of it, it remains unstructured and inconsistent.
+If you haven't given much thought to what makes a great git commit message, it may be the case that you haven't spent much time using `git log` and related tools. There is a vicious cycle here: because the commit history is unstructured and inconsistent, one doesn't spend much time using or taking care of it. And because it doesn't get used or taken care of, it remains unstructured and inconsistent.
 
 But a well-cared for log is a beautiful and useful thing. `git blame`, `revert`, `rebase`, `log`, `shortlog` and other subcommands come to life. Reviewing others' commits and pull requests becomes something worth doing, and suddenly can be done independently. Understanding why something happened months or years ago becomes not only possible but efficient.
 
@@ -57,7 +57,7 @@ A project's long-term success rests (among other things) on its maintainability,
 
 In this post, I am addressing just the most basic element of keeping a healthy commit history: how to write an individual commit message. There are other important practices like commit squashing that I am not addressing here. Perhaps I'll do that in a subsequent post.
 
-Most programming languages have well-established conventions as to what constitutes idiomatic style, i.e. naming and formatting and so on. There are variations on these conventions, of course, but most developers agree that picking one and sticking to it is far better than the chaos that ensues when everybody does their own thing.
+Most programming languages have well-established conventions as to what constitutes idiomatic style, i.e. naming, formatting and so on. There are variations on these conventions, of course, but most developers agree that picking one and sticking to it is far better than the chaos that ensues when everybody does their own thing.
 
 A team's approach to its commit log should be no different. In order to create a useful revision history, teams should first agree on a commit message convention that defines at least the following three things:
 
@@ -96,7 +96,7 @@ For example:
 
     Explain the problem that this commit is solving. Focus on why you
     are making this change as opposed to how (the code explains that).
-    Are there side effects or other unintuitive consequenses of this
+    Are there side effects or other unintuitive consequences of this
     change? Here's the place to explain them.
 
     Further paragraphs come after blank lines.
@@ -232,7 +232,7 @@ _Imperative mood_ just means "spoken or written as if giving a command or instru
  - Close the door
  - Take out the trash
  
-Each of the seven rules you're reading about right now are written in the imperative ("Wrap the body at 72 characters", etc).
+Each of the seven rules you're reading about right now are written in the imperative ("Wrap the body at 72 characters", etc.).
 
 The imperative can sound a little rude; that's why we don't often use it. But it's perfect for git commit subject lines. One reason for this is that **git itself uses the imperative whenever it creates a commit on your behalf**.
 
@@ -341,7 +341,7 @@ This [commit from Bitcoin Core](https://github.com/bitcoin/bitcoin/commit/eb0b56
 
 Take a look at the [full diff](https://github.com/bitcoin/bitcoin/commit/eb0b56b19017ab5c16c745e6da39c53126924ed6) and just think how much time the author is saving fellow and future committers by taking the time to provide this context here and now. If he didn't, it would probably be lost forever.
 
-In most cases, you can leave out details about how a change has been made. Code is generally self-explanatory in this regard (and if the code is so complex that it needs to be explained in prose, that's what source comments are for). Just focus on making clear the reasons you made the change in the first place—the way things worked before the change (and what was wrong with that), the way they work now, and why you decided to solve it the way you did.
+In most cases, you can leave out details about how a change has been made. Code is generally self-explanatory in this regard (and if the code is so complex that it needs to be explained in prose, that's what source comments are for). Just focus on making clear the reasons why you made the change in the first place—the way things worked before the change (and what was wrong with that), the way they work now, and why you decided to solve it the way you did.
 
 The future maintainer that thanks you may be yourself!
 
